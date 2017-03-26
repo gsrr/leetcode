@@ -7,16 +7,12 @@ def test(cases, cn = 1):
         print "-" * 10
         cnt += 1
 
-def ans(x, y):
-    ret = 0
-    for i in xrange(31):
-        b1 = (x >> i) & 1
-        b2 = (y >> i) & 1
-        ret += (b1 ^ b2)
-    return ret
+def ans(a):
+    print a
+
 
 cases = [
-    [1, 4]
+    [100],
 ]
 test(cases,1)
 
