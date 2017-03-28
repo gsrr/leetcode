@@ -1,4 +1,3 @@
-
 def test(cases, cn = 1):
     cnt = 0
     while cnt < cn and cnt < len(cases):
@@ -8,12 +7,21 @@ def test(cases, cn = 1):
         print "-" * 10
         cnt += 1
 
-def ans(a, b):
-    print a, b
+def factor(n):
+    ret = []
+    cnt = 1
+    while cnt * cnt <= n:
+        if n % cnt == 0:
+            ret.append(cnt)
+        cnt += 1
+    return ret
+
+def ans(a):
+    print factor(a)
 
 
 cases = [
-    [1, 2],
+    [4],
 ]
 test(cases,1)
 
