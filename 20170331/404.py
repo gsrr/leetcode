@@ -1,3 +1,4 @@
+
 import copy
 
 #Definition for a binary tree node.
@@ -49,7 +50,7 @@ def bfs(root):
             q.append(node.right)
 
 
-#@tree_convert
+@tree_convert
 def test(cases, cn = 1):
     cnt = 0
     while cnt < cn and cnt < len(cases):
@@ -59,47 +60,25 @@ def test(cases, cn = 1):
         print "-" * 10
         cnt += 1
 
-def bstree_insert(n, root):
-    if root == None:
-        return TreeNode(n)
-
-    if n < root.val:
-        root.left = bstree_insert(n, root.left)
-    elif n > root.val:
-        root.right = bstree_insert(n, root.right)
-    return root
-
-def bstree_search(root, n):
-    if root == None:
-        return False
-
-    if n > root.val:
-        return bstree_search(root.right, n)
-    elif n < root.val:
-        return bstree_search(root.left, n)
+def ldr(node, role):
+    ret = 0
+    if node.left == None and node.right == None:
+        if role == "left":
+            return node.val
+        else:
+            return 0
     else:
-        return True
+        if node.left != None:
+            ret = ret + ldr(node.left, "left")
+        if node.right != None:
+            ret = ret +  ldr(node.right, "right")
+    return ret
 
-def bstree(a):
-    root = None
-    for i in a:
-        root = bstree_insert(i, root)
-    return root
-
-def ans(a, b):
-    root = bstree(a)
-    b.sort()
-    ret = []
-    for i in xrange(len(b)):
-        if ret and ret[len(ret) - 1] == b[i]:
-            continue
-        if bstree_search(root, b[i]):
-            ret.append(b[i])
-    return ret 
+def ans(root):
+    return ldr(root, "root")
 
 cases = [
-    [[1,2,2,1], [2, 2]],
-    [[1], [1]]
+    [1,2,3,4]
 ]
-test(cases,10)
+test(cases,1)
 
