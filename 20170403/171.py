@@ -52,26 +52,17 @@ def list2dic(nums):
 def list2dic_bool(nums):
     return { item:True for item in nums }
 
-def bfs(a, index, hist):
-    q = [index]  # init
-    while len(q) != 0:
-        i = q.pop(0)
-        # do operation
-        if hist[i] == 1:
-            continue
-        hist[i] = 1
-
-        # post
-        for j in xrange(len(a[i])):
-            if a[i][j] == 1 and i != j:
-                q.append(j)
-
 def ans(a):
-    print a
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    dic_letters = {c: i+1 for i,c in enumerate(letters)}
+    ret = 0
+    for cnt, c in enumerate(a[::-1]):
+        ret += pow(26, cnt) * dic_letters[c]
+    return ret
+
 
 cases = [
-        [[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]],
-        [[[1]]],
+    ["AB"],
 ]
-test(cases,2)
+test(cases,1)
 

@@ -52,26 +52,38 @@ def list2dic(nums):
 def list2dic_bool(nums):
     return { item:True for item in nums }
 
-def bfs(a, index, hist):
-    q = [index]  # init
-    while len(q) != 0:
-        i = q.pop(0)
-        # do operation
-        if hist[i] == 1:
-            continue
-        hist[i] = 1
+def issub(a, b):
+    s = 0
+    find = False
+    for i in xrange(len(a)):
+        find = False
+        for j in xrange(s, len(b)):
+            if a[i] == b[j]:
+                s = j + 1
+                find = True
+                break
+    return find
 
-        # post
-        for j in xrange(len(a[i])):
-            if a[i][j] == 1 and i != j:
-                q.append(j)
-
-def ans(a):
-    print a
-
+def ans(a, b):
+    print a, b
+    if len(a) > len(b):
+        if issub(b, a):
+            return len(a)
+        else:
+            return len(a)
+    elif len(a) < len(b):
+        if issub(a, b):
+            return len(b)
+        else:
+            return len(b)
+    else:
+        if a != b:
+            return len(a)
+        else:
+            return -1
 cases = [
-        [[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]],
-        [[[1]]],
+    ["aba", "cdc"],
+    ["aefawfawfawfaw","aefawfeawfwafwaef"],
 ]
-test(cases,2)
+test(cases,10)
 

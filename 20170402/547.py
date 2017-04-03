@@ -52,26 +52,30 @@ def list2dic(nums):
 def list2dic_bool(nums):
     return { item:True for item in nums }
 
-def bfs(a, index, hist):
-    q = [index]  # init
-    while len(q) != 0:
-        i = q.pop(0)
-        # do operation
-        if hist[i] == 1:
-            continue
-        hist[i] = 1
-
-        # post
+def bfs_matrix(a, hist):
+    for i in xrange(len(a)):
         for j in xrange(len(a[i])):
-            if a[i][j] == 1 and i != j:
-                q.append(j)
+            if a[i][j] == 0:
+                continue
+            if hist[i][j] == 1:
+                continue
+            q = [(i,j)]
+            while len(q) != 0:
+
+
 
 def ans(a):
-    print a
+    hist = []
+    for i in xrange(len(a)):
+        hist.append([])
+        for j in xrange(len(a[i])):
+            hist[i].append(0)
+    bfs_matrix(a, hist)
 
 cases = [
-        [[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]],
-        [[[1]]],
+        [[[1,1,0],
+            [1,1,0],
+            [0,0,1]]],
 ]
-test(cases,2)
+test(cases,1)
 

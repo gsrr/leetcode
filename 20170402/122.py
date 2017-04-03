@@ -1,6 +1,5 @@
 
 
-
 def test(cases, cn = 1):
     cnt = 0
     while cnt < cn and cnt < len(cases):
@@ -52,26 +51,39 @@ def list2dic(nums):
 def list2dic_bool(nums):
     return { item:True for item in nums }
 
-def bfs(a, index, hist):
-    q = [index]  # init
-    while len(q) != 0:
-        i = q.pop(0)
-        # do operation
-        if hist[i] == 1:
-            continue
-        hist[i] = 1
+def checkBuy(a, b):
+    if b > a:
+        return True
+    else:
+        return False
 
-        # post
-        for j in xrange(len(a[i])):
-            if a[i][j] == 1 and i != j:
-                q.append(j)
+def checkSell(a, b):
+    if b > a :
+        return False
+    else:
+        return True
 
 def ans(a):
-    print a
+    profit = 0
+    buy_money = 0
+    hand = False # Buy or Sell
+    for i in xrange(len(a) - 1):
+        if hand == False:
+            ret = checkBuy(a[i], a[i + 1])
+            if ret == True:
+                hand = True
+                buy_money = a[i]      
+        else:
+            ret = checkSell(a[i], a[i + 1])
+            if ret == True:
+                hand = False
+                profit += a[i] - buy_money
+    if hand == True:
+        profit += a[len(a) - 1] - buy_money
+    return profit
 
 cases = [
-        [[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]],
-        [[[1]]],
+    [[1,2,3,4,5,6,5,7,8]],
 ]
-test(cases,2)
+test(cases,1)
 
