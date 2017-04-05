@@ -42,16 +42,25 @@ def tree_convert(func):
         return func(treecases, cn)
     return wrap_func
 
-def bfs(root):
+def bfs(root, path):
     q = [root]
     while len(q) != 0:
         node = q.pop(0)
-        print node.val
-        if node.left != None:
+        if node != None:
+            path.append(node.val)
             q.append(node.left)
-        if node.right != None:
             q.append(node.right)
+        else:
+            path.append(None)
 
+def dfs(node, path):
+    if node == None:
+        path.append(None)
+        return
+    dfs(node.left, path)
+    path.append(node.val)
+    dfs(node.right, path)
+    
 
 @tree_convert
 def test(cases, cn = 1):
@@ -92,10 +101,23 @@ def bstree(a):
     return root
 
 def ans(a, b):
-    bfs(b)
+    ret1 = []
+    ret2 = []
+    bfs(a, ret1)
+    bfs(b, ret2)
+    print ret1
+    print ret2
+    if len(ret1) != len(ret2):
+        return False
+    else:
+        for p,q in zip(ret1, ret2):
+            if p != q:
+                return False
+
+    return True
 
 cases = [
-    [[1,2,5, 7], [1,2,3,4]],
+    [[1,1], [1,None,1]],
 ]
 test(cases,10)
 

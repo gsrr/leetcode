@@ -1,4 +1,8 @@
-
+#Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 def test(cases, cn = 1):
     cnt = 0
@@ -45,7 +49,7 @@ def list2dic(nums):
     for i in nums:
         if dic.has_key(i) == False:
             dic[i] = 0
-        dic[i] = dic[i] + 1
+        dic[i] + 1
     return dic
 
 def list2dic_bool(nums):
@@ -65,47 +69,49 @@ def bfs(a, index, hist):
             if a[i][j] == 1 and i != j:
                 q.append(j)
 
-import itertools
+def list_insert(lnums, n):
+    tmp = lnums
+    while tmp.next != None:
+        tmp = tmp.next
+    tmp.next = ListNode(n)
 
-def convert2time(ts):
-    dic_t = {
-        1 : ("hr", 1),
-        2 : ("hr", 2),
-        3 : ("hr", 4),
-        4 : ("hr", 8),
-        5 : ("m", 1),
-        6 : ("m", 2),
-        7 : ("m", 4),
-        8 : ("m", 8),
-        9 : ("m", 16),
-        10 : ("m", 32),
-    }
-    hr = 0
-    m = 0
-    for t in ts:
-        tf = dic_t[t]
-        if tf[0] == "hr":
-            hr += tf[1]
+def arr2list(nums):
+    lnums = None
+    for n in nums:
+        if lnums == None:
+            lnums = ListNode(n)
         else:
-            m += tf[1]
-    return (hr, m)
+            list_insert(lnums, n)
+    return lnums
 
-def iter_combination(table, n):
-    return itertools.combinations(table, n)
+def list_delete(lnums, val):
+    pre = None
+    tmp = lnums
+    while tmp.next != None:
+        if tmp.val == val:
+            if pre == None:
+                pre = tmp.next
+                tmp.next = None
+                lnums = pre
+            else:
+                pre = tmp.next
+                tmp.next = None
+            break
+        else:
+            pre = tmp
+            tmp = tmp.next
 
 def ans(a):
-    t = [1,2,3,4,5,6,7,8,9,10]
-    ret = []
-    iter_comb = iter_combination(t, a)
-    for i in iter_comb:
-        hr, m = convert2time(i)
-        if hr < 12 and m < 60:
-            ret.append("%d:%02d"%(hr,m))
-    return ret
+    la = arr2list(a)
+    list_delete(la, 0)
+    while la != None:
+        print la.val
+        la = la.next
+    return la
 
 cases = [
-        [0],
-        [1],
+        [[1,2,3,4]],
+        [[0, 1]],
 ]
 test(cases,2)
 

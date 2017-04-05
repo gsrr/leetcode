@@ -65,47 +65,17 @@ def bfs(a, index, hist):
             if a[i][j] == 1 and i != j:
                 q.append(j)
 
-import itertools
-
-def convert2time(ts):
-    dic_t = {
-        1 : ("hr", 1),
-        2 : ("hr", 2),
-        3 : ("hr", 4),
-        4 : ("hr", 8),
-        5 : ("m", 1),
-        6 : ("m", 2),
-        7 : ("m", 4),
-        8 : ("m", 8),
-        9 : ("m", 16),
-        10 : ("m", 32),
-    }
-    hr = 0
-    m = 0
-    for t in ts:
-        tf = dic_t[t]
-        if tf[0] == "hr":
-            hr += tf[1]
-        else:
-            m += tf[1]
-    return (hr, m)
-
-def iter_combination(table, n):
-    return itertools.combinations(table, n)
-
 def ans(a):
-    t = [1,2,3,4,5,6,7,8,9,10]
-    ret = []
-    iter_comb = iter_combination(t, a)
-    for i in iter_comb:
-        hr, m = convert2time(i)
-        if hr < 12 and m < 60:
-            ret.append("%d:%02d"%(hr,m))
-    return ret
+    dic_a = list2dic(a)
+    for key, item in dic_a.items():
+        if item != 1:
+            return False
+    return True
+
 
 cases = [
-        [0],
-        [1],
+        [[1,2,3,4,1]]
 ]
+
 test(cases,2)
 
