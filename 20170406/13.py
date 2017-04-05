@@ -73,17 +73,32 @@ def ans(a):
     dic_r = {
         "I" : 1,
         "V" : 5,
+        "IV" : 4,
         "X" : 10,
+        "IX" : 9,
         "L" : 50,
+        "XL" : 40,
         "C" : 100,
+        "XC" : 90,
         "D" : 500,
+        "CD" : 400,
         "M" : 1000,
+        "CM" : 900,
     }
-    for s in a[::-1]:
-        print dic_r[]
+    ret = 0
+    s = 0
+    while s < len(a):
+        if dic_r.has_key(a[s:s+2]):
+            ret += dic_r[a[s:s+2]]
+            s = s + 2
+        else:
+            ret += dic_r[a[s]]
+            s = s + 1
+    return ret
 
 cases = [
         ["DCXXI"],
+        ["DCXIX"],
 ]
 test(cases,2)
 

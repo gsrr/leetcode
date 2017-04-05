@@ -69,21 +69,19 @@ def bfs(a, index, hist):
 def iter_combination(table, n):
     return itertools.combinations(table, n)
 
-def ans(a):
-    dic_r = {
-        "I" : 1,
-        "V" : 5,
-        "X" : 10,
-        "L" : 50,
-        "C" : 100,
-        "D" : 500,
-        "M" : 1000,
-    }
-    for s in a[::-1]:
-        print dic_r[]
+def ans(a, b):
+    dic_a = list2dic(a)
+    ret = []
+    for i in b:
+        if dic_a.has_key(i):
+            ret.append(i)
+            dic_a[i] = dic_a[i] - 1
+            if dic_a[i] == 0:
+                del dic_a[i]
+    return ret
 
 cases = [
-        ["DCXXI"],
+        [[1,2,2,1], [2,2]],
 ]
 test(cases,2)
 
