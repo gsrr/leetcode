@@ -74,23 +74,36 @@ def iter_permutations(table, n):
     return itertools.permutations(table, n)
 
 def dist(a,b):
-    x_diff = abs(b[0] - a[0])
-    y_diff = abs(b[1] - a[1])
+    x_diff = b[0] - a[0]
+    y_diff = b[1] - a[1]
     return x_diff * x_diff + y_diff * y_diff
 
 def boomerangs(tup):
     if dist(tup[0], tup[1]) == dist(tup[0], tup[2]):
         return True
-    else:
-        return False
+
+    if dist(tup[1], tup[0]) == dist(tup[1], tup[2]):
+        return True
+
+    if dist(tup[2], tup[0]) == dist(tup[2], tup[1]):
+        return True
+    
+    return False
 
 def ans(a):
-    it = iter_permutations(a, 3)
     ret = 0
-    for i in it:
-        print i
-        if boomerangs(i):
-            ret += 1
+    for i in xrange(len(a)):
+        dic_n = {}
+        for j in xrange(len(a)):
+            if i != j:
+                #d = (a[j][0] - a[i][0]) **2 + (a[j][1] - a[i][1]) ** 2
+                d = dist(a[i], a[j])
+                if dic_n.has_key(d) == False:
+                    dic_n[d] = 0
+                dic_n[d] += 1
+        for key, item in dic_n.items():
+            if item > 1:
+                ret += (item * (item - 1))
     return ret
 
 cases = [
