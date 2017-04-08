@@ -37,10 +37,10 @@ def linsearch(nums, b):  # nums is sorted array
         if b > nums[j]:
             continue
         elif b < nums[j]:
-            return (j, False)
+            return False
         else:
-            return (j, True)
-    return (len(nums), False)
+            return True
+    return False
 
 def list2dic(nums):
     dic = {}
@@ -85,13 +85,32 @@ def boomerangs(tup):
     else:
         return False
 
-def ans(a, b):
-    i, ret = linsearch(a, b)
-    return i
+def ans(a,b):
+    ret = []
+    ra = a[::-1]
+    rb = b[::-1]
+    if len(a) < len(b):
+        ra = b[::-1]
+        rb = a[::-1]
+
+    c = 0
+    for i in xrange(len(rb)):
+        s = (ord(ra[i]) - 48) + (ord(rb[i]) - 48) + c
+        c = s / 10
+        ret.append(s % 10)
+    
+    for j in xrange(len(rb), len(ra)):
+        s = (ord(ra[j]) - 48) + c
+        c = s / 10
+        ret.append(s % 10)
+    if c != 0:
+        ret.append(c)
+    return "".join([str(x) for x in ret[::-1]])
 
 cases = [
-        [[1,3,5,6], 5],
-        [[1,3,5,6], 0],
+        ["1", "9"],
+        ["456", "456"],
+        ["1456", "1456"],
 ]
 test(cases,2)
 

@@ -1,5 +1,6 @@
 
 
+import math
 import itertools
 
 def test(cases, cn = 1):
@@ -37,10 +38,10 @@ def linsearch(nums, b):  # nums is sorted array
         if b > nums[j]:
             continue
         elif b < nums[j]:
-            return (j, False)
+            return False
         else:
-            return (j, True)
-    return (len(nums), False)
+            return True
+    return False
 
 def list2dic(nums):
     dic = {}
@@ -85,13 +86,17 @@ def boomerangs(tup):
     else:
         return False
 
-def ans(a, b):
-    i, ret = linsearch(a, b)
-    return i
+def ans(n):
+    if n <= 0:
+        return False
+    else:
+        ret = math.log(n,3)
+        print ret
+        return abs(ret - round(ret)) < 0.000000000001 
 
 cases = [
-        [[1,3,5,6], 5],
-        [[1,3,5,6], 0],
+        [45],
+        [1594322],
 ]
 test(cases,2)
 

@@ -22,14 +22,14 @@ def factor(n):
 
 def binsearch(nums, n, l, h):  # nums is sorted array
     if h < l:
-        return False
+        return (l, False)
     mid = (l + h)/ 2
     if n < nums[mid]:
         return binsearch(nums, n , l, mid - 1)
     elif n > nums[mid]:
         return binsearch(nums, n , mid + 1, h)
     else:
-        return True
+        return (mid, True)
     
 
 def linsearch(nums, b):  # nums is sorted array
@@ -86,12 +86,13 @@ def boomerangs(tup):
         return False
 
 def ans(a, b):
-    i, ret = linsearch(a, b)
+    i, ret = binsearch(a, b, 0 , len(a) -1 )
     return i
 
 cases = [
         [[1,3,5,6], 5],
         [[1,3,5,6], 0],
+        [[1,3,5,6], 7],
 ]
-test(cases,2)
+test(cases,3)
 
