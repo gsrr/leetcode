@@ -15,9 +15,6 @@ def factor(n):
     while cnt * cnt <= n:
         if n % cnt == 0:
             ret.append(cnt)
-            ops = n / cnt
-            if cnt != 1 and ops != cnt:
-                ret.append(ops)
         cnt += 1
     return ret
 
@@ -86,23 +83,47 @@ def boomerangs(tup):
     else:
         return False
 
-def ans(a):
-    n = len(a)
-    fs = factor(n)
-    for f in fs:
-        i = 0
-        j = i + f
-        find = True
-        while j < len(a):
-            if a[i] != a[j]:
-                find = False
-            i += 1
-            j += 1
-        if find:
-            return True
-    return False
+def ans(strs):
+    sslen = 0
+    sst = ""
+    for seq in itertools.product("01", repeat=len(strs)):
+        ss = ""
+        for i in xrange(len(seq)):
+            if int(seq[i]) == 1:
+                ss += strs[i][::-1]
+            else:
+                ss += strs[i]
+        sst += ss
+        sslen = len(ss)
+        tss = ss
+    print "-".join(sorted(tss))
+    tss = "".join(sorted(tss))
+    cnt = 0
+    ccnt = 0
+    maxs = "a" * len(sst)
+    while cnt < len(sst):
+        slen = len(strs[ccnt%len(strs)])
+        if (cnt + sslen) > len(sst):
+            break
+        tmps = sst[cnt:(cnt + sslen)]
+        print tmps,"-",
+        if tmps > maxs:
+            stmps = "".join(sorted(tmps))
+            if stmps == tss:
+                maxs = tmps
+        #cnt += slen
+        cnt += 1
+        ccnt += 1
+    return maxs
+    
+
 cases = [
-        ["abab"],
+        [["abc", "xyz"]],
+        [["ab","xy","cd","aaa","bab"]],
+        [["abc", "zya"]],
+        [["abc"]],
+        [["yzy","aba"]],
+        [["awef","eawf","zdaeff","awefzewaf","awefzewaf"]],
 ]
-test(cases,2)
+test(cases,10)
 

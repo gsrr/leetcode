@@ -1,5 +1,3 @@
-
-
 import copy
 
 #Definition for a binary tree node.
@@ -122,14 +120,34 @@ def _ans(node, s, path):
     _ans(node.right, s, path)
     path.pop()
 
-def ans(a, s):
-    path = []
-    _ans(a, s.val, path)
-    return ret
+def _bfs(root, ret, q):
+    cnt = 0
+    new_q = []
+    while cnt < len(q):
+        node = q[cnt]
+        if node == None:
+            continue
+        if node.left != None:
+            new_q.append(node.left)
+        if node.right != None:
+            new_q.append(node.right)
+        cnt += 1
+    if len(new_q) != 0:
+        ret.append([i.val for i in new_q])
+        _bfs(root,ret,new_q)
+
+def ans(a):
+    if a == None:
+        return []
+    ret = []
+    q = [a]
+    ret.append([i.val for i in q])
+    _bfs(a, ret, q)
+    return ret[::-1]
     
 
 cases = [
-    [[10,5,-3,3,2,None,11,3,-2,None,1], [8]],
+    [[3, 9, 20, None, None, 15, 7]],
 ]
 test(cases,10)
 

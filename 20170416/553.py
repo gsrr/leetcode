@@ -1,3 +1,4 @@
+
 import itertools
 
 def test(cases, cn = 1):
@@ -15,9 +16,6 @@ def factor(n):
     while cnt * cnt <= n:
         if n % cnt == 0:
             ret.append(cnt)
-            ops = n / cnt
-            if cnt != 1 and ops != cnt:
-                ret.append(ops)
         cnt += 1
     return ret
 
@@ -87,22 +85,17 @@ def boomerangs(tup):
         return False
 
 def ans(a):
-    n = len(a)
-    fs = factor(n)
-    for f in fs:
-        i = 0
-        j = i + f
-        find = True
-        while j < len(a):
-            if a[i] != a[j]:
-                find = False
-            i += 1
-            j += 1
-        if find:
-            return True
-    return False
+    sa = [str(x) for x in a]
+    if len(sa) == 1:
+        return sa[0]
+    if len(sa) == 2:
+        return "%s/%s"%(sa[0], sa[1])
+    ret = "%s/(%s)"%(sa[0], "/".join(sa[1:]))
+    return ret
+
 cases = [
-        ["abab"],
+        [[1000,100,10,2]],
+        [[10,2]],
 ]
 test(cases,2)
 

@@ -1,4 +1,5 @@
 import itertools
+import math
 
 def test(cases, cn = 1):
     cnt = 0
@@ -9,15 +10,51 @@ def test(cases, cn = 1):
         print "-" * 10
         cnt += 1
 
+def is_prime_v2(n, primes):
+    for p in primes:
+        if p * p > n:
+            return True
+        if n % p == 0:
+            return False
+    return True
+    
+def is_prime(n):
+    if n == 1:
+        return False
+    cnt = 2
+    while cnt * cnt <= n:
+        if n % cnt == 0:
+            return False
+        cnt += 1
+    return True
+
+def find_primes(n):
+    ret = [2]
+    for i in xrange(3, n):
+        if is_prime(i, ret):
+            ret.append(i)
+    return ret
+
+def prime_factor(n):
+    #primes = find_primes(int(math.sqrt(n)))
+    ret = []
+    cnt = 1
+    while cnt * cnt <= n:
+        if n % cnt == 0:
+            if cnt == 1 or is_prime(cnt): 
+                ret.append(cnt)
+                ops = n / cnt
+                if is_prime(ops) and ops != cnt:
+                    ret.append(ops)
+        cnt += 1
+    return ret
+
 def factor(n):
     ret = []
     cnt = 1
     while cnt * cnt <= n:
         if n % cnt == 0:
             ret.append(cnt)
-            ops = n / cnt
-            if cnt != 1 and ops != cnt:
-                ret.append(ops)
         cnt += 1
     return ret
 
@@ -87,22 +124,17 @@ def boomerangs(tup):
         return False
 
 def ans(a):
-    n = len(a)
-    fs = factor(n)
-    for f in fs:
-        i = 0
-        j = i + f
-        find = True
-        while j < len(a):
-            if a[i] != a[j]:
-                find = False
-            i += 1
-            j += 1
-        if find:
-            return True
-    return False
+    primes = prime_factor(a)
+    print a, primes
+    for p in primes[1:]:
+        if p not in [2, 3, 5]:
+            return False
+    return True
+
 cases = [
-        ["abab"],
+        [50],
+        [1355394467],
+        [2073365937],
 ]
-test(cases,2)
+test(cases,20)
 

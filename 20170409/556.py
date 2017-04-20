@@ -1,4 +1,6 @@
+
 import itertools
+import copy
 
 def test(cases, cn = 1):
     cnt = 0
@@ -15,9 +17,6 @@ def factor(n):
     while cnt * cnt <= n:
         if n % cnt == 0:
             ret.append(cnt)
-            ops = n / cnt
-            if cnt != 1 and ops != cnt:
-                ret.append(ops)
         cnt += 1
     return ret
 
@@ -86,23 +85,67 @@ def boomerangs(tup):
     else:
         return False
 
+def swap_insert(i, j ,arr):
+    tmp = arr[i]
+    del arr[i]
+    arr.insert(j, tmp)
+
+def swap_delete(i, j, arr):
+    tmp = arr[j]
+    del arr[j]
+    arr.insert(i, tmp)
+
+import time
+start_flag = 0
+def perm(ssn, cnt, ret, sn):
+    global start_flag
+    if cnt == len(ssn):
+        #time.sleep(1)
+        print ssn
+        ret.append(copy.deepcopy(ssn))
+        start_flag += 1
+    for i in xrange(cnt, len(ssn)):
+        if i != cnt and ssn[i] == ssn[cnt]:
+            continue
+        #if start_flag >= 1 or ssn[i] == sn[cnt]:
+        swap_insert(i, cnt, ssn)
+        perm(ssn, cnt + 1, ret, sn)
+        swap_delete(i, cnt, ssn)
+
 def ans(a):
-    n = len(a)
-    fs = factor(n)
-    for f in fs:
-        i = 0
-        j = i + f
-        find = True
-        while j < len(a):
-            if a[i] != a[j]:
-                find = False
-            i += 1
-            j += 1
-        if find:
-            return True
-    return False
+    global start_flag
+    sa = str(a)
+    ret = []
+    ssa = sorted(list(sa))
+    start_flag = 0
+    perm(ssa, 0, ret, list(sa))
+    min_max = 0xffffffff
+    for r in ret:
+        rsa = int("".join(r))
+        if rsa > a :
+            min_max = rsa
+    if min_max == 0xffffffff:
+        return -1
+    else:
+        return min_max
+
 cases = [
-        ["abab"],
+        [12453322],
+        '''
+        [1000001],
+        [123],
+        [321],
+        [115],
+        [987654321],
+        [1999999999],
+        [1234],
+        [12],
+        [21],
+        [121],
+        [101],
+        [120],
+        [1200000],
+        '''
 ]
-test(cases,2)
+test(cases,10)
 

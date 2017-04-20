@@ -90,15 +90,8 @@ def ans(a):
     n = len(a)
     fs = factor(n)
     for f in fs:
-        i = 0
-        j = i + f
-        find = True
-        while j < len(a):
-            if a[i] != a[j]:
-                find = False
-            i += 1
-            j += 1
-        if find:
+        tmps = a[0:f] * (n/f)
+        if tmps == a:
             return True
     return False
 cases = [
