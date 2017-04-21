@@ -83,39 +83,43 @@ def boomerangs(tup):
     else:
         return False
 
-def ans(strs):
-    sslen = 0
-    sst = ""
-    for seq in itertools.product("01", repeat=len(strs)):
-        ss = ""
-        for i in xrange(len(seq)):
-            if int(seq[i]) == 1:
-                ss += strs[i][::-1]
-            else:
-                ss += strs[i]
-        sst += ss
-        sslen = len(ss)
-        tss = ss
-    print "-".join(sorted(tss))
-    tss = "".join(sorted(tss))
-    cnt = 0
-    ccnt = 0
-    maxs = "a" * len(sst)
-    while cnt < len(sst):
-        slen = len(strs[ccnt%len(strs)])
-        if (cnt + sslen) > len(sst):
+def get_maxs(sst, start, end):
+    cnt = start
+    slen = len(sst)/2
+    maxs = "a" * (len(sst)/2)
+    while cnt < end:
+        if (cnt + slen) > len(sst):
             break
-        tmps = sst[cnt:(cnt + sslen)]
-        print tmps,"-",
+        tmps = sst[cnt:(cnt + slen)]
         if tmps > maxs:
-            stmps = "".join(sorted(tmps))
-            if stmps == tss:
-                maxs = tmps
-        #cnt += slen
+            maxs = tmps
         cnt += 1
-        ccnt += 1
     return maxs
-    
+        
+
+def ans(strs):
+    lsst = [max(s, s[::-1]) for s in strs]
+    cnt = 0
+    maxs = "" 
+    start = 0
+    end = 0
+    for i in xrange(len(lsst)):
+        sst = "".join(lsst)
+        sst = sst * 2
+        end += len(lsst[i])
+        tmps = get_maxs(sst, start, end)
+        if tmps > maxs:
+            maxs = tmps
+        if lsst[i] != lsst[i][::-1]:
+            lsst[i] = lsst[i][::-1]
+            sst = "".join(lsst)
+            sst = sst * 2
+            tmps = get_maxs(sst, start, end)
+            if tmps > maxs:
+                maxs = tmps
+            lsst[i] = lsst[i][::-1]
+        start += len(lsst[i])
+    return maxs
 
 cases = [
         [["abc", "xyz"]],
@@ -124,6 +128,8 @@ cases = [
         [["abc"]],
         [["yzy","aba"]],
         [["awef","eawf","zdaeff","awefzewaf","awefzewaf"]],
+        [["lc","evol","cdy"]],
+        [["a","b","c"]],
 ]
 test(cases,10)
 
