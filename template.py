@@ -1,3 +1,4 @@
+
 import itertools
 
 def test(cases, cn = 1):
@@ -86,23 +87,23 @@ def boomerangs(tup):
     else:
         return False
 
-def ans(a):
-    n = len(a)
-    fs = factor(n)
-    for f in fs:
-        i = 0
-        j = i + f
-        find = True
-        while j < len(a):
-            if a[i] != a[j]:
-                find = False
-            i += 1
-            j += 1
-        if find:
-            return True
-    return False
+def isPalindrome(x):
+    if x < 0:
+        return False
+    px = 0
+    tmp = x
+    while tmp != 0:
+        r = tmp % 10
+        tmp = tmp / 10
+        px = (px * 10) + r
+    return px == x
+
+
+def ans(x):
+    return isPalindrome(x)
+
 cases = [
-        ["abab"],
+        [5],
 ]
 test(cases,2)
 
