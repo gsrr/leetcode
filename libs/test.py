@@ -41,23 +41,15 @@ for row in pascals_triangle(10):
     print sum(row)
 '''
 
-def insertion_sort_algo(arr, index, val):
-    tmp = val
-    i = index
+def isort(arr, i):
+    val = arr[i]
+    j = i
     cnt = 0
-    while i > 0 and arr[i - 1] > val:
-        arr[i] = arr[i - 1]
+    while j > 0 and arr[j - 1] > val:
+        arr[j] = arr[j - 1]
         cnt += 1
-        i -= 1
-    arr[i] = val
-    return cnt
-
-def insertion_sort(arr):
-    print arr,
-    cnt = 0
-    for i in xrange(len(arr)):
-        cnt += insertion_sort_algo(arr, i, arr[i])
-    print cnt
+        j -= 1
+    arr[j] = val
     return cnt
 
 def qsort(arr, s , e):
@@ -73,6 +65,15 @@ def qsort(arr, s , e):
     print arr
     qsort(arr, s, j)
     qsort(arr, j + 2, e)
+
+def test_isort():
+    arr = create_rand_arr(10)
+    cnt = 0
+    for i in xrange(len(arr)):
+        cnt += isort(arr, i)
+        print arr
+    print cnt
+    return cnt
 
 def test_qsort():
     arr = create_rand_arr(10)
