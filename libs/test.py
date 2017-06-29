@@ -66,6 +66,12 @@ def qsort(arr, s , e):
     qsort(arr, s, j)
     qsort(arr, j + 2, e)
 
+def alpha_set(s):
+    num = 0
+    for w in set(s):
+        num += (1 << (ord(w) - ord('a')))
+    return num
+
 def test_isort():
     arr = create_rand_arr(10)
     cnt = 0
