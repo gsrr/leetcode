@@ -72,6 +72,32 @@ def alpha_set(s):
         num += (1 << (ord(w) - ord('a')))
     return num
 
+def perms(arr, s, e):
+    if s == e - 1:
+        print arr
+        return 
+    for i in xrange(s, e):
+        arr[s], arr[i] = arr[i], arr[s]
+        perms(arr, s + 1, e)
+        arr[i], arr[s] = arr[s], arr[i]
+    
+def combins(arr, k, ret):
+    if k == 0:
+        print ret
+    for i in xrange(len(arr)):
+        ret.append(arr[i]) 
+        combins(arr[i + 1:], k - 1, ret)
+        ret.pop()
+
+def test_combins():
+    arr = range(1,10)
+    ret = []
+    combins(arr, 3, ret)
+    
+def test_perms():
+    arr = range(1,4)
+    perms(arr, 0, len(arr))
+
 def test_isort():
     arr = create_rand_arr(10)
     cnt = 0
