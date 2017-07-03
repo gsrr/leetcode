@@ -111,6 +111,26 @@ def test_qsort():
     arr = create_rand_arr(10)
     qsort(arr, 0, len(arr) - 1)
 
+def test_permutations():
+    arr = [1,2,3,4,5,]
+    dic_p = {}
+    for i in xrange(len(arr)):
+        dic_p[arr[i]] = i
+    print dic_p
+    ps = permutations(arr)
+    cnt = 0
+    for line in ps:
+        print line
+        find = True
+        for i in xrange(len(line)):
+            oi = dic_p[line[i]]
+            if oi == i:
+                find = False
+                break
+        if find:
+            cnt += 1
+    print cnt
+
 def main():
     func = getattr(sys.modules[__name__], sys.argv[1])
     func()
