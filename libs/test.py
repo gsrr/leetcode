@@ -131,6 +131,21 @@ def test_permutations():
             cnt += 1
     print cnt
 
+def is_num_palindrome(n):
+    sn = str(n)
+    for i in xrange(len(sn)/2):
+        if sn[i] != sn[len(sn) - 1 - i]:
+            return False
+    return True
+
+def test_multi():
+    base = 1
+    up = 1337
+    for i in xrange(base, up):
+        for j in xrange(i + 1, up):
+            if is_num_palindrome( i * j ):
+                print i, j, i * j, (i * j) % 1337 
+
 def main():
     func = getattr(sys.modules[__name__], sys.argv[1])
     func()
