@@ -138,6 +138,18 @@ def is_num_palindrome(n):
             return False
     return True
 
+def shuffle():
+        """
+        Returns a random shuffling of the array.
+        :rtype: List[int]
+        """
+        orig = range(1,4)
+        nl = list(orig)
+        for i in xrange(len(nl)):
+            ni = random.randint(i, len(nl) - 1)
+            nl[i], nl[ni] = nl[ni], nl[i]
+        return nl
+
 def test_multi():
     n = 7
     base = pow(10, n - 1)
