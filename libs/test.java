@@ -1,40 +1,38 @@
 class Solution {
-	    public int kInversePairs(int n, int k) {
-	    	long[] dp = new long[k+n];
-	    	int mod = 1000000007;
-	    	dp[0] = 1;
-	    	for(int i = 1;i <= n;i++){
-	    		for(int j = dp.length-1-i;j >= 0;j--){
-	    			dp[j+i] -= dp[j];
-	    			//if(dp[j+i] < 0)dp[j+i] += mod;
-	    		}
-	    	}
-		for(int j = 0;j < dp.length;j++){
-			System.out.printf("%d,",dp[j])	;
-			
-		}
+    public int largestPalindrome(int n) {
+        if (n == 1) {
+            return 9;
+        }
 
-	    	for(int i = 1;i <= n;i++){
-	    		for(int j = 0;j < dp.length-1;j++){
-	    			dp[j+1] += dp[j];
-	    			//dp[j+1] %= mod;
-	    		}
-	    	}
-		System.out.printf("\n")	;
-		for(int j = 0;j < dp.length;j++){
-			System.out.printf("%d,",dp[j])	;
-			
-		}
-		System.out.printf("\n")	;
-	    	return (int)dp[k];
-	    }
-	}
+        int high = (int) Math.pow(10, n) - 1, low = high / 10;
 
+        for (int i = high; i > low; i--) {
+            long palindrome = createPalindrome(i);
+			System.out.printf("%d\n", palindrome);
+	
+            for (long j = high; j > low; j--) {
+                if (palindrome / j > high) {
+					System.out.printf("%d %d\n", j, high);
+                    break;
+                }
+                if (palindrome % j == 0) {
+                    return (int) (palindrome % 1337);
+                }
+            }
+        }
+        return -1;
+    }
+
+    private long createPalindrome(long num) {
+        String str = num + new StringBuilder(Long.toString(num)).reverse().toString();
+        return Long.parseLong(str);
+    }
+}
 public class test{
 	
 	public static void main(String[] args)
 	{
 		Solution s = new Solution();
-		System.out.printf("%d\n",s.kInversePairs(3,1))	;
+		System.out.printf("%d\n",s.largestPalindrome(7))	;
 	}
 }

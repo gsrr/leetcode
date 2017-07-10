@@ -139,13 +139,29 @@ def is_num_palindrome(n):
     return True
 
 def test_multi():
+    n = 7
+    base = pow(10, n - 1)
+    #up = 1337
+    up = pow(10, n)
+    max_val = 0
+    for i in xrange(up, base, -1):
+        for j in xrange(i - 1, base, -1):
+            if is_num_palindrome( i * j ):
+                if i * j > max_val:
+                    max_val = i * j
+                else:
+                    break
+                im = i % 1337
+                jm = j % 1337
+                print i, j, i * j, (i * j) % 1337 
+                print im, jm, im * jm, (im * jm) % 1337 
+
+def test_multi_2():
     base = 1
     up = 1337
-    for i in xrange(base, up):
-        for j in xrange(i + 1, up):
-            if is_num_palindrome( i * j ):
-                print i, j, i * j, (i * j) % 1337 
-
+    for i in xrange(up, base, -1):
+        for j in xrange(i - 1, base, -1):
+            print i, j, i * j, (i * j) % 1337 
 def main():
     func = getattr(sys.modules[__name__], sys.argv[1])
     func()
