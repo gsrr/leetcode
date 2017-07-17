@@ -12,8 +12,23 @@ def create_rand_arr(n):
 
 def combinations(arr):
     cs = itertools.combinations(arr, len(arr))
-    for line in cs:
-        print line
+    return cs
+
+jperm_cnt = 0
+def jpermutations(arr, s):
+    global jperm_cnt
+    if s == len(arr) - 1:
+        print arr
+        jperm_dic[str(arr)] += 1
+        jperm_cnt += 1
+        return
+    hist = {}
+    for i in xrange(s, len(arr)):
+        if hist.has_key(arr[i]) == False:
+            arr[s], arr[i] = arr[i], arr[s]
+            jpermutations(arr, s + 1)
+            arr[s], arr[i] = arr[i], arr[s]
+            hist[arr[i]] = True
 
 def permutations(arr):
     ps = itertools.permutations(arr, len(arr))
@@ -131,6 +146,25 @@ def test_permutations():
             cnt += 1
     print cnt
 
+def test_permutations_v2():
+    arr = ["(", ")"] * 3
+    cs = permutations(arr)
+    cnt = 0 
+    for line in cs:
+        print "".join(line)
+        cnt += 1
+    print cnt
+
+def test_jpermuations():
+    global jperm_cnt
+    arr = ["(", ")"] * 3
+    arr = ["x", "y"] * 3
+    #arr = [1,2,3]
+    jpermutations(arr, 0)
+    print jperm_cnt
+    print jperm_dic
+    print len(jperm_dic.keys())
+
 def is_num_palindrome(n):
     sn = str(n)
     for i in xrange(len(sn)/2):
@@ -174,6 +208,7 @@ def test_multi_2():
     for i in xrange(up, base, -1):
         for j in xrange(i - 1, base, -1):
             print i, j, i * j, (i * j) % 1337 
+
 def main():
     func = getattr(sys.modules[__name__], sys.argv[1])
     func()
