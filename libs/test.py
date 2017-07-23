@@ -184,6 +184,16 @@ def shuffle():
             nl[i], nl[ni] = nl[ni], nl[i]
         return nl
 
+def find_all_sarr(q, arr):
+    cnt = 0
+    for i in xrange(0, len(arr)):
+        si = collections.defaultdict(int)
+        for j in xrange(i, len(arr)):
+            si[arr[j]] += 1
+            if si.get(q[0],0) == si.get(q[1],0):
+                cnt += 1
+    return cnt
+
 def test_multi():
     n = 7
     base = pow(10, n - 1)
@@ -208,6 +218,9 @@ def test_multi_2():
     for i in xrange(up, base, -1):
         for j in xrange(i - 1, base, -1):
             print i, j, i * j, (i * j) % 1337 
+
+def test_find_all_sarr():
+    print find_all_sarr((1,2), [1,2,1,4])
 
 def main():
     func = getattr(sys.modules[__name__], sys.argv[1])
