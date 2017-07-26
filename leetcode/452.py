@@ -99,88 +99,37 @@ def isPalindrome(x):
         px = (px * 10) + r
     return px == x
 
-from fractions import gcd
-import collections
 
-def is_prime(n):
-    i = 2
-    while i * i <= n:
-        if n % i == 0:
-            return False
-        i += 1
-    return True
+def is_same_range(a, b):
+    if a[1] - b[0] >= 0 and b[1] - a[1] >= 0:
+        return True
+    if b[0] - a[0] >= 0 and a[1] - b[0] >= 0:
+        return True
+    return False
 
-def ans_nn(aa, bb):
-    # 1. duplicate items
-    # 2. prime number
-    dica = collections.Counter(aa)
-    dicb = collections.Counter(bb)
-    a = dica.keys()
-    b = dicb.keys()
-    gval = 0
-    ca = 0
-    cb = 0
-    for kb in b:
-        if is_prime(kb):
-            if dica.has_key(kb) == None:
-                tval = 1
+def update_crange(cr, a):
+    x = max(cr[0], a[0])
+    y = min(cr[1], a[1])
+    return [x,y]
 
-    '''
-                    
-    a.sort(reverse=True)
-    b.sort(reverse=True)
-    print a, b
-    
-    for i in xrange(len(a)):
-        if a[i] <= gval:
-            break
-        #is_p = is_prime(a[i])
-        for j in xrange(len(b)):
-            if b[j] <= gval or a[i] <= gval:
-                break
-            print a[i], b[j], gval
-            tval = gcd(a[i], b[j])
-            if tval > gval:
-                gval = tval
-                ca, cb = a[i], b[j]
-    '''
-    return ca + cb
-
-from collections import Counter as ccounter
-def ans(a, b):
-    ca = ccounter(a)
-    cb = ccounter(b)
-    maxa = max(a)
-    maxb = max(b)
-    fa = {}
-    fb = {}
-    fa[1] = maxa
-    fb[1] = maxb
-    c = 1
-    for i in xrange(2, maxa + 1):
-        val = i * c
-        while val <= maxa:
-            if ca.get(val, 0) != 0:
-                fa[i] = val
-            c += 1
-            val = i * c
-    c = 1
-    for i in xrange(2, maxb + 1):
-        val = i * c
-        while val <= maxb:
-            if cb.get(val, 0) != 0:
-                fb[i] = val
-            c += 1
-            val = i * c
-    keya = fa.keys()
-    keya.sort(reverse = True)
-    for k in keya:
-        if fb.get(k, 0) != 0:
-            return fa[k] + fb[k]
+def ans(x):
+    if len(x) == 0:
+        return 0
+    x.sort()
+    lx = [x[0]]
+    crange = x[0]
+    for i in xrange(1, len(x)):
+        if is_same_range(crange, x[i]) == True:
+            crange = update_crange(crange, x[i])
+        else:
+            lx.append(x[i])
+            crange = x[i]
+    return len(lx)
 
 cases = [
-        [[17,11,7,5,16], [3,101,29,41,43]],
-        [[1], [5,2,12,8,3]],
+        [[[10,16], [2,8], [1,6], [7,12]]],
+        [[[3,9],[7,12],[3,8],[6,8],[9,10],[2,9],[0,9],[3,9],[0,6],[2,8]]],
+        [[[9,12],[1,10],[4,11],[8,12],[3,9],[6,9],[6,7]]]
 ]
-test(cases,2)
+test(cases,3)
 
