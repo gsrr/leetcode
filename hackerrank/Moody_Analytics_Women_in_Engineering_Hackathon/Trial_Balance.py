@@ -6,23 +6,19 @@ from itertools import combinations as comb
 min_val = 0x7fffffff
 vals = []
 
-def find(arr, cur, tar, ret):
-    global min_val
-    global vals
+def find(arr, cur, tgt, i):
     if tar <= 0:
         if abs(tar) <= min_val:
             vals.append((abs(tar), list(ret)))
             min_val = abs(tar)
         return
-    if tar - sum(arr) > 0:
-        return
-    for i in xrange(len(arr)):
-        ret.append(arr[i])
-        if i == 0:
-            find(arr[i + 1:], cur + arr[i], tar - arr[i], ret)
-        elif arr[i] != arr[i - 1]:
-            find(arr[i + 1:], cur + arr[i], tar - arr[i], ret)
-        ret.pop()
+
+    ret.append(arr[i])
+    if i == 0:
+        find(arr[i + 1:], cur + arr[i], tar - arr[i], ret)
+    elif arr[i] != arr[i - 1]:
+        find(arr[i + 1:], cur + arr[i], tar - arr[i], ret)
+    ret.pop()
 
 from collections import Counter as ccunt
 def comp(arr1, arr2):
@@ -47,7 +43,6 @@ def solve(n, m, d, c):
 
     arr.sort(reverse = True)
     min_diff = sum(arr) / 2
-    print arr, min_diff
     ret = []
     find(arr, 0, min_diff, ret)
     vals.sort()
@@ -59,10 +54,50 @@ def solve(n, m, d, c):
         min_move = min(comp(v[1], d), comp(v[1],c), min_move)
     return [min_diff, min_move]
 
+def findallsum(arr, arrsum, choicesum, midval):
+    print arrsum
+    for i in xrange(1, len(arr)):
+        arrsum -= arr[i]
+        if arrsum + choicesum >= midval:
+            findallsum(arr[i + 1:], arrsum, choicesum, midval)
+        arrsum += arr[i]
+
+def solve2(n,m,d,c):
+    midval = (sum(d) + sum(c)) / 2
+    d.sort(reverse = True)
+    c.sort(reverse = True)
+    findallsum(d, sum(d), sum(c), midval)
+    return (0,0)
+
+def solve3(n,m,d,c):
+    arr = d + c
+    total = sum(arr)
+    sumarr = [0] * (total + 1)
+    sumarr[0] = 1
+    # all possible sums
+    for i in xrange(len(arr)):
+        for t in xrange(total, arr[i] - 1, -1):
+            sumarr[t] = sumarr[t] | sumarr[t - arr[i]]
+    
+    minval = total
+    midval = 0
+    for t in xrange(total):
+        if total - t < t:
+            break
+        if sumarr[t] == 0:
+            continue
+        tmpval = total - 2 * t
+        if tmpval < minval:
+            midval = t
+            minval = tmpval
+    print midval
+
+    return (0, 0)
+
 if __name__ == "__main__":
     n, m = raw_input().strip().split(' ')
     n, m = [int(n), int(m)]
     d = map(int, raw_input().strip().split(' '))
     c = map(int, raw_input().strip().split(' '))
-    result = solve(n, m, d, c)
+    result = solve3(n, m, d, c)
     print " ".join(map(str, result))
