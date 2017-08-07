@@ -90,7 +90,6 @@ def solve3(n,m,d,c):
         if tmpval < minval:
             midval = t
             minval = tmpval
-    print midval
     
     maxA = [-10000] * (total + 1)
     minA = [10000] * (total + 1)
@@ -110,20 +109,17 @@ def solve3(n,m,d,c):
     min_steps = m + n
     min_t = 0
     for t in xrange(midval + 1):
-        if maxA[t] >= 0 and minA[t] <= n and minB[minval-t] >= 0 and minB[minval - t] <= m: 
-            val = n - maxA[t] + minB[minval - t]
+        if maxA[t] >= 0 and minA[t] <= n and minB[midval-t] >= 0 and minB[midval - t] <= m: 
+            val = n - maxA[t] + minB[midval - t]
             if val < min_steps:
                 min_steps = val
                 min_t = t
-                print "a"
-        if maxB[t] >= 0 and minB[t] <= m and minA[minval-t] >= 0 and minA[minval - t] <= n: 
-            val = m - maxB[t] + minA[minval - t]
+        if maxB[t] >= 0 and minB[t] <= m and minA[midval-t] >= 0 and minA[midval - t] <= n: 
+            val = m - maxB[t] + minA[midval - t]
             if val < min_steps:
                 min_steps = val
                 min_t = t
-                print "b"
 
-    print min_t
     return [total - 2 * midval, min_steps]
 
 if __name__ == "__main__":
