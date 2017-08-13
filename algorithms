@@ -5,5 +5,5 @@
   1.3 Binary indexed tree (Fenwick Tree)
   (http://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/)
 2. Inversion Count
-
-
+  1.1 sliding inversion
+  1.2 inversion count

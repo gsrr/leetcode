@@ -99,19 +99,27 @@ int main() {
 			mp[l]=++c;
 		}
 	for (i=0; i<n; i++)
+	{
 		r[i]=mp[b[i]];
+		cout << r[i] << ",";
+	}
+	cout << "\n";
 	ccnt=0;
-	for (ii = m-1; ii >= 0; ii--) {
+	for (ii=m-1; ii>=0; ii--) {
 		ccnt+=f.sum(r[ii]);
 		f.add(r[ii], 1);
 	}
 	ans=ccnt;
-	for (i = m; i < n; i++) {
-		ccnt -= f.sum(r[i-m]);
-		f.add(r[i - m], -1);
-		ccnt += f.range(r[i]+1, f.sz);
+	cout << ans << "\n";
+	for (i=m; i<n; i++) {
+		int dcnt = f.sum(r[i-m]);
+		ccnt -= dcnt;
+		f.add(r[i-m], -1);
+		int acnt = f.range(r[i]+1, f.sz); 
+		ccnt += acnt;
+		cout << "dcnt, acnt:" << dcnt << "," << acnt << "\n";
 		f.add(r[i], 1);
-		ans += ccnt;
+		ans+=ccnt;
 	}
 	cout << ans << endl;
 	return 0;
