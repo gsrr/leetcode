@@ -17,4 +17,10 @@
 [Greedy]
   1.1 Buy Maximum Stocks
 
+[Tree]
+  1.1 Summation in root node
+  1.2 Summation in leaf node
+
 [Binary Search]
+[Dynamic Programming]
+  1.1 377 (combinnationSum4)
