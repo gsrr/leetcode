@@ -1,0 +1,62 @@
+def ans_3(a):
+    '''
+    Reduce to max subarray
+    1. Create a difference array. (diffArr)
+    2. 從diff array開始進行累加, 並記錄max_val, 我們假設起始點為0, 所subarray sum小於0的話, 代表遇到比起始點小的值,
+       這時就要進行替換, 也就是從這個點再開始計算subarray sum.
+       
+    1. Time Complexity: O(n)
+    2. Result : Accept (49ms)
+    '''
+    diffArr = [ a[i] - a[i - 1] for i in xrange(1, len(a))]
+    max_val = 0
+    s = 0
+    for i in xrange(len(diffArr)):
+        s += diffArr[i]
+        if s < 0:
+            s = 0
+        max_val = max(max_val, s)
+    return max_val
+
+def ans_2(arr):
+    '''
+    1. Time complexity: O(n)
+    2. Result : Accept (45ms)
+    
+    '''
+    min_val = arr[0]
+    max_val = arr[0]
+    profit = max_val - min_val
+    for i in xrange(1, len(arr)):
+        if arr[i] < min_val:
+            min_val = arr[i]
+            max_val = arr[i]
+        max_val = max(max_val, arr[i])
+        profit = max(profit, max_val - min_val)
+    return profit
+    
+def ans_1(arr):
+    '''
+    1. Time complexity : O(n^2)
+    2. Result : Time Limit Exceeded
+    
+    Problem:
+        1. We should relace current value with smaller value If we find a smaller value than current value.
+        --> ans_2
+    '''
+    max_val = 0
+    for i in xrange(len(arr)):
+        for j in xrange(i + 1, len(arr)):
+            max_val = max(arr[j] - arr[i], max_val)
+    return max_val
+
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices) == 0:
+            return 0
+        return ans_3(prices)
+        
