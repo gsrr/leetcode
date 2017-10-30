@@ -1,3 +1,20 @@
+def ans_4(arr):
+    '''
+    Reduce to max subarray without difference array
+    (Kadane's Algorithm)
+    
+    1. Time Complexity: O(n)
+    2. Result : Accept (49ms)
+    '''
+    
+    maxPro = 0
+    curPro = 0
+    for i in xrange(1, len(arr)):
+        curPro += (arr[i] - arr[i - 1])
+        curPro = max(0, curPro)
+        maxPro = max(maxPro, curPro)
+    return maxPro
+
 def ans_3(a):
     '''
     Reduce to max subarray
@@ -6,7 +23,7 @@ def ans_3(a):
        這時就要進行替換, 也就是從這個點再開始計算subarray sum.
        
     1. Time Complexity: O(n)
-    2. Result : Accept (49ms)
+    2. Result : Accept (38ms)
     '''
     diffArr = [ a[i] - a[i - 1] for i in xrange(1, len(a))]
     max_val = 0
@@ -15,13 +32,14 @@ def ans_3(a):
         s += diffArr[i]
         if s < 0:
             s = 0
-        max_val = max(max_val, s)
+        else:
+            max_val = max(max_val, s)
     return max_val
 
 def ans_2(arr):
     '''
     1. Time complexity: O(n)
-    2. Result : Accept (45ms)
+    2. Result : Accept
     
     '''
     min_val = arr[0]
@@ -58,5 +76,5 @@ class Solution(object):
         """
         if len(prices) == 0:
             return 0
-        return ans_3(prices)
+        return ans_4(prices)
         
