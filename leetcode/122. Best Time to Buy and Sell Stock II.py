@@ -27,7 +27,7 @@ def ans_2(arr):
 
 def ans_3(arr):
     '''
-    Two variable for solving
+    Sliding windows (variable length)
     
     Time Complexity : O(n)
     Result : Accept

@@ -25,6 +25,42 @@ def findMax(arr):
         max_val = max(max_val, s)
     return max_val
 
+def ans_6(prices, k):
+    '''
+    Inspired from ans_5, 
+    1. create a array with element : [hold, release]
+    
+    Time Complexity : O(n)
+    Space Complexity : O(1)
+    Result : Accept
+    '''
+    arr = [[-0x80000000, 0] for _ in xrange(k)]
+    arr.append([0, 0])
+    for p in prices:
+        for i in xrange(k):
+            arr[i][1] = max(arr[i][1], arr[i][0] + p)
+            arr[i][0] = max(arr[i][0], arr[i + 1][1] - p)
+    return arr[0][1]
+    
+def ans_5(prices):
+    '''
+    From discussion area (Dynamic programming)
+    
+    Time Complexity : O(n)
+    Space Complexity : O(1)
+    Result : Accept
+    '''
+    hold1 = -0x80000000
+    hold2 = -0x80000000
+    release1 = 0
+    release2 = 0
+    for p in prices:
+        print (hold1, release1, hold2, release2)
+        release2 = max(release2, hold2 + p)
+        hold2 = max(hold2, release1 - p)   # buy hold-2
+        release1 = max(release1, hold1 + p)  # sell hold-1
+        hold1 = max(hold1, -p) # buy hold-1
+    return release2
 
 def ans_4(prices):
     '''
@@ -117,4 +153,4 @@ class Solution(object):
         if len(prices) <= 1:
             return 0
         
-        return ans_4(prices)
+        return ans_6(prices, 2)
