@@ -24,9 +24,20 @@
     1.1 Longest Increasing Subsequence - 673
 
     [Subarray sum]
-    1.1 525
+    1.1 525. Contiguous Array
+    --> 713. Subarray Product Less Than K
+    --> http://www.geeksforgeeks.org/find-the-largest-subarray-with-0-sum/
     1.2 443. String Compression
     1.3 560. Subarray Sum Equals K 
+    1.4 523. Continuous Subarray Sum
+    1.5 713. Subarray Product Less Than K
+    1.6 1. Two Sum
+    152. Maximum Product Subarray
+    --> 53. Maximum Subarray
+    --> 198. House Robber
+    --> 238. Product of Array Except Self
+    --> 
+
 
 [Priority Queue]
 
