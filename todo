@@ -1,10 +1,7 @@
-* 443. String Compression
 719. Find K-th Smallest Pair Distance
 718. Maximum Length of Repeated Subarray
 * 717. 1-bit and 2-bit Characters
 	89. Gray Code
-
-* 309. Best Time to Buy and Sell Stock with Cooldown
 
 Disjoint-set:
 (http://www.geeksforgeeks.org/union-find/)
@@ -15,5 +12,11 @@ Disjoint-set:
 		Lowest Common Ancestor in a Binary Tree
 		Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
 		Find LCA in Binary Tree using RMQ
+		--> http://www.geeksforgeeks.org/find-lca-in-binary-tree-using-rmq/
+		----> segment tree
+		------>http://www.geeksforgeeks.org/segment-tree-efficient-implementation/
+		--> http://www.geeksforgeeks.org/range-minimum-query-for-static-array/
+		--> http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/
 	721. Accounts Merge
 
+Longest Common Subsequence

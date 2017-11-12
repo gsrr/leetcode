@@ -10,6 +10,8 @@
 
 
 [array]
+    [Basic]
+        1.443. String Compression
     [Inversion of array]
     1. Inversion of array
       1.1 Insertion sort --> O(n^2)
