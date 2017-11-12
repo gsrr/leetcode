@@ -5,9 +5,12 @@
 	89. Gray Code
 
 * 309. Best Time to Buy and Sell Stock with Cooldown
+
 Disjoint-set:
+(http://www.geeksforgeeks.org/union-find/)
+	128. Longest Consecutive Sequence
 	* 235. Lowest Common Ancestor of a Binary Search Tree
-	236. Lowest Common Ancestor of a Binary Tree
+	* 236. Lowest Common Ancestor of a Binary Tree
 	[GeeksforGeeks]
 		Lowest Common Ancestor in a Binary Tree
 		Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
