@@ -54,6 +54,11 @@ def ans_1(arr, query):
 def ans_2(arr, query):
     RMQ_2(arr, query)
 
+def ans_3(arr, query):
+    '''
+    segment tree
+    RMQ_3(arr, query)
+    '''
 '''
 Minimum of [0, 4] is 0
 Minimum of [4, 7] is 3
