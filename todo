@@ -15,8 +15,10 @@ Disjoint-set:
 		--> http://www.geeksforgeeks.org/find-lca-in-binary-tree-using-rmq/
 		----> segment tree
 		------>http://www.geeksforgeeks.org/segment-tree-efficient-implementation/
-		--> http://www.geeksforgeeks.org/range-minimum-query-for-static-array/
-		--> http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/
+		------> http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/
+		*-----> http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+		--> http://www.geeksforgeeks.org/range-minimum-query-for-static-array/ (sparse table algorithm)
+
 	721. Accounts Merge
 
 Longest Common Subsequence
