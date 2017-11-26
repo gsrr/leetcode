@@ -20,5 +20,10 @@ Disjoint-set:
 		--> http://www.geeksforgeeks.org/range-minimum-query-for-static-array/ (sparse table algorithm)
 
 	721. Accounts Merge
+	*-> 734. Sentence Similarity
+	--> 547. Friend Circles
+	--> 737. Sentence Similarity II
+
+736. Parse Lisp Expression
 
 Longest Common Subsequence
