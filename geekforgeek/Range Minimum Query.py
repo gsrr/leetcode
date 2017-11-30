@@ -1,73 +1,41 @@
-import random
+'''Please note that it's Function problem i.e.
+you need to write your solution in the form of Function(s) only.
+Driver Code to call/invoke your function would be added by GfG's Online Judge.'''
 
-def RMQ_1(arr, query):
-    '''
-    Simple method
-
-    Time Complexity : O(n^2)
-    Space Complexity : O(n^2)
-    '''
-    lookup = [[0] * len(arr) for _ in xrange(len(arr))]
-    for i in xrange(len(arr)):
-        lookup[i][i] = arr[i]
-
-    for i in xrange(len(arr)):
-        for j in xrange(i + 1, len(arr)):
-            lookup[i][j] = lookup[i][j - 1]
-            if arr[j] < lookup[i][j - 1]:
-                lookup[i][j] = arr[j]
-
-    for i in xrange(len(query)):
-        x,y = query[i]
-        print query[i], lookup[x][y]
-
-def RMQ_2(arr, query):
-    '''
-    Square Root Decomposition
-    '''
-    import math
-
-    n = int(math.sqrt(len(arr)))
-    lookup = [0] * n
-    for i in xrange(0, len(arr), n):
-        lookup[i/n] = min(arr[i:i+n])
-
-    for i in xrange(len(query)):
-        l,r = query[i]
-        min_val = 0x7fffffff
-        while l < r and l % n != 0:
-            min_val = min(min_val, arr[l])
-            l += 1
-
-        while (l + n) < r:
-            min_val = min(min_val, lookup[l / n])
-            l += n
-        
-        while l < r:
-            min_val = min(min_val, arr[l])
-            l += 1
-        print query[i], min_val
+import math
+# Your task is to complete this function and RMQ function
+# funtion should return contructed segemnt tree
+# arr is the array
+# n is the size of the array
+def constructStUtil(arr, ss, se, st, si):
+    if ss == se:
+        st[si] = arr[ss]
+    else:
+        mid = (ss + se) // 2
+        #print (ss, se, mid)
+        st[si] = min(constructStUtil(arr, ss, mid, st, si * 2 + 1) , constructStUtil(arr, mid + 1, se, st, si * 2 + 2))
+    return st[si]
     
-def ans_1(arr, query):
-    RMQ_1(arr, query)
+def constructSt(arr, n):
+    # Code here
+    h = int(math.ceil(math.log(len(arr), 2)))
+    st = [0] * (pow(2, h + 1) - 1)
+    constructStUtil(arr, 0, n - 1, st, 0)
+    return st
+# this range minimum query function should return the
+# minimum value in the range a and b
+# t is the segment tree
+# n is the total number of digits in the array
+def RMQUtil(st, ss, se, qs, qe, si):
+    if qs > se or qe < ss:
+        return 0x7fffffff
+    if qs <= ss and qe >= se:
+        return st[si]
+    mid = (ss + se) // 2
+    return min(RMQUtil(st, ss, mid, qs, qe, si * 2 + 1), RMQUtil(st, mid + 1, se, qs, qe, si * 2 + 2))
+    
+    
+def RMQ(st, n, qs, qe):
+    # Code here
+    return RMQUtil(st, 0, n - 1, qs, qe, 0)
 
-def ans_2(arr, query):
-    RMQ_2(arr, query)
-
-def ans_3(arr, query):
-    '''
-    segment tree
-    RMQ_3(arr, query)
-    '''
-'''
-Minimum of [0, 4] is 0
-Minimum of [4, 7] is 3
-Minimum of [7, 8] is 12
-'''
-def main():
-    arr = [7, 2, 3, 0, 5, 10, 3, 12, 18]
-    query = [(0,4), (4,7), (7,8)]
-    ans_2(arr, query)
-
-if __name__ == "__main__":
-    main()
