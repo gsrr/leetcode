@@ -9,15 +9,17 @@ Disjoint-set:
 	* 235. Lowest Common Ancestor of a Binary Search Tree
 	* 236. Lowest Common Ancestor of a Binary Tree
 	[GeeksforGeeks]
-		Lowest Common Ancestor in a Binary Tree
-		Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
+		*Lowest Common Ancestor in a Binary Tree
+		*Lowest Common Ancestor in a Binary Tree | Set 2 (Using Parent Pointer)
 		Find LCA in Binary Tree using RMQ
 		--> http://www.geeksforgeeks.org/find-lca-in-binary-tree-using-rmq/
 		----> segment tree
 		------>http://www.geeksforgeeks.org/segment-tree-efficient-implementation/
 		*-----> http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/
 		*-----> http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
-		--> http://www.geeksforgeeks.org/range-minimum-query-for-static-array/ (sparse table algorithm)
+		*--> http://www.geeksforgeeks.org/range-minimum-query-for-static-array/ (sparse table algorithm)
+            --> inversion count (using bit tree)
+
 
 	721. Accounts Merge
 	*-> 734. Sentence Similarity
@@ -27,3 +29,11 @@ Disjoint-set:
 736. Parse Lisp Expression
 
 Longest Common Subsequence
+
+Inversion Count
+    --> Count Inversions in an array | Set 1 (Using Merge Sort)
+    --> Count inversions in an array | Set 2 (Using Self-Balancing BST)
+    --> Counting Inversions using Set in C++ STL
+    --> Count inversions in an array | Set 3 (Using BIT(Fenwick tree))
+
+*Construct the Array(101 hack 52):math,rule
