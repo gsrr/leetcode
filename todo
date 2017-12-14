@@ -26,9 +26,12 @@ Disjoint-set:
 	--> 547. Friend Circles
 	--> 737. Sentence Similarity II
 
-736. Parse Lisp Expression
+*736. Parse Lisp Expression:fsm,parser
+--> 591. Tag Validator
+--> 726. Number of Atoms
 
 Longest Common Subsequence
+--> 673. Number of Longest Increasing Subsequence
 
 Inversion Count
     --> Count Inversions in an array | Set 1 (Using Merge Sort)
