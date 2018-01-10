@@ -1,4 +1,46 @@
+'''
+tag : kmp,string_matching
+'''
 
+def get_failure_func(word):
+    dp = [-1] * len(word)
+    for i in xrange(1, len(word)):
+        j = dp[i - 1]
+        while j > -1 and word[j + 1] != word[i]:
+            j = dp[j]
+            
+        if word[j + 1] == word[i]:
+            dp[i] = j + 1
+    return dp
+
+def kmp_search(word, S):
+    ret = []
+    ff = get_failure_func(word)
+    i = 0
+    j = 0
+    while i < len(S):
+        if j == len(word):
+            ret.append([i - j, i]) # [start in front, end in rear]  
+            j = ff[j - 1] + 1
+            
+        if S[i] == word[j]:
+            i += 1
+            j += 1
+        else:
+            if j == 0:
+                i += 1
+            else:
+                j = ff[j - 1] + 1
+    if j == len(word):
+        ret.append([i - j, i]) # [start in front, end in rear]  
+    return ret
+    
+def find_occur_ans2(words, S):
+    bold_list = []
+    for w in words:
+        bold_list.extend(kmp_search(w, S))
+    return bold_list
+        
 def find_occur_ans1(words, S):
     '''
     1. String matching
@@ -80,7 +122,7 @@ def insert_bold_ans3(new_list, S):
     return "".join(ret)
 
 def ans_1(words, S):
-    bold_list = find_occur_ans1(words, S)
+    bold_list = find_occur_ans2(words, S)
     if len(bold_list) == 0:
         return S
 
