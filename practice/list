@@ -1,4 +1,5 @@
-sort:insertion,20180115
-sort:quicksort
+**sort:insertion
+*sort:quicksort
 arr:interval combine
 bit:one's count
+string:kmp
