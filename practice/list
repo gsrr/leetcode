@@ -1,5 +1,6 @@
 **sort:insertion
 *sort:quicksort
+*sort:selectSort
 arr:interval combine
 bit:one's count
 string:kmp
