@@ -1,6 +1,9 @@
-**sort:insertion
-*sort:quicksort
+**sort:insertSort
+*sort:quickSort
 *sort:selectSort
+*sort:bubbleSort
+sort:radixSort
+sort:countingSort
 arr:interval combine
 bit:one's count
 string:kmp
