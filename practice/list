@@ -2,8 +2,14 @@
 *sort:quickSort
 *sort:selectSort
 *sort:bubbleSort
-sort:radixSort
-sort:countingSort
+*sort:radixSort
+*sort:countingSort
+sort:mergeSort
+sort:heapSort
+sort:binary_tree
+search:binarySearch
+search:bfs
+search:dfs
 arr:interval combine
 bit:one's count
 string:kmp
