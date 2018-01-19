@@ -4,7 +4,7 @@
 *sort:bubbleSort
 *sort:radixSort
 *sort:counting_sort
-sort:mergeSort
+*sort:mergeSort
 sort:heapSort
 *sort:binary_search_tree:array
 sort:binary_search_tree:linked list
@@ -13,6 +13,11 @@ search:bfs
 search:dfs
 arr:interval combine
 bit:one's count
+string:reverse
 string:kmp
+math:prime
+math:factorial
 math:permutation
 math:combination
+tree:range minimal query:segment tree
+dp:longest subsequence
