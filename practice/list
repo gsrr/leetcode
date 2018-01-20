@@ -3,7 +3,7 @@
 *sort:selectSort
 *sort:bubbleSort
 *sort:radixSort
-*sort:counting_sort
+**sort:counting_sort:Largest Even Number
 *sort:mergeSort
 sort:heapSort:buttomUp
 *sort:headSort:topDown
