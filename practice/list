@@ -2,7 +2,7 @@
 *sort:quickSort
 *sort:selectSort
 *sort:bubbleSort
-*sort:radixSort
+***sort:radixSort:with counting sort
 **sort:counting_sort:Largest Even Number
 *sort:mergeSort
 sort:heapSort:buttomUp
