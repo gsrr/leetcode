@@ -1,12 +1,12 @@
-**sort:insertSort
-*sort:quickSort
+***sort:insertSort:Insertion Sort (Function Problem)
+**sort:quickSort:Sort The Array
 *sort:selectSort
 *sort:bubbleSort
 ***sort:radixSort:with counting sort
 **sort:counting_sort:Largest Even Number
 *sort:mergeSort
-sort:heapSort:buttomUp
-*sort:headSort:topDown
+*sort:heapSort:buttomUp
+*sort:heapSort:topDown
 *sort:binary_search_tree:array
 sort:binary_search_tree:linked list
 search:binarySearch
