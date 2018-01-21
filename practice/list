@@ -22,3 +22,5 @@ math:permutation
 math:combination
 tree:range minimal query:segment tree
 dp:longest subsequence
+*matrix:zig-zag scan:766. Toeplitz Matrix
+*priority_queue:767. Reorganize String
