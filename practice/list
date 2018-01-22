@@ -12,6 +12,7 @@ sort:binary_search_tree:linked list
 search:binarySearch
 search:bfs
 search:dfs
+search:A*
 arr:interval combine
 bit:one's count
 string:reverse
