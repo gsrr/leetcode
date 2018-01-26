@@ -13,7 +13,8 @@ search:binarySearch
 search:bfs
 search:dfs
 search:A*
-arr:interval combine
+interval:combine
+array:max and min:maxarr and minarr:count:position
 bit:one's count
 string:reverse
 string:kmp
