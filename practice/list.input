@@ -1,2 +1,2 @@
-array;max/min number:
-array,number;sum of this number in array:
+[array]
+	finding pair = Two Sum(leetcode.1);Winning Lottery Ticket(hackerrank);
