@@ -1,7 +1,16 @@
-[array]
-	finding pair = Two Sum(leetcode.1);Winning Lottery Ticket(hackerrank);
+[tree]
+	[Binary Search Tree]
+		tree-split = 776. Split BST
 
+[array]
+	peak element = 162. Find Peak Element;
+	finding pair = Two Sum(leetcode.1);Winning Lottery Ticket(hackerrank);
+	Inversion Count = 775. Global and Local Inversions; insertion sort
+
+[two arrays]
 [numbers]
+	find rule = 779. K-th Symbol in Grammar;
 
 [two strings]
 	substring = 771. Jewels and Stones
+
