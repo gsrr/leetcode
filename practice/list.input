@@ -6,8 +6,10 @@
 	peak element = 162. Find Peak Element;
 	finding pair = Two Sum(leetcode.1);Winning Lottery Ticket(hackerrank);
 	Inversion Count = 775. Global and Local Inversions; insertion sort
+	item convert = Acid Naming;
 
 [two arrays]
+	transform to another = 777. Swap Adjacent in LR String;
 [numbers]
 	find rule = 779. K-th Symbol in Grammar;
 
