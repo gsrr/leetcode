@@ -7,7 +7,9 @@
 	finding pair = Two Sum(leetcode.1);Winning Lottery Ticket(hackerrank);
 	Inversion Count = 775. Global and Local Inversions; insertion sort
 	item convert = Acid Naming;
-
+	
+	[01array]
+	1->0 = Revised Russian Roulette
 [two arrays]
 	transform to another = 777. Swap Adjacent in LR String;
 [numbers]
