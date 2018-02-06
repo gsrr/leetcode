@@ -9,9 +9,14 @@
 	item convert = Acid Naming;
 	
 	[01array]
-	1->0 = Revised Russian Roulette
+		1->0 = Revised Russian Roulette
+
 [two arrays]
 	transform to another = 777. Swap Adjacent in LR String;
+
+[matrix]
+	(0,0)->(1,1) = 778. Swim in Rising Water
+
 [numbers]
 	find rule = 779. K-th Symbol in Grammar;
 
