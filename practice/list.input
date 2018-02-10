@@ -7,6 +7,8 @@
 	finding pair = Two Sum(leetcode.1);Winning Lottery Ticket(hackerrank);
 	Inversion Count = 775. Global and Local Inversions; insertion sort
 	item convert = Acid Naming;
+	go and replace(stock problem) = A Race Against Time;
+	sum of subarray = Largest Sum Contiguous Subarray;
 	
 	[01array]
 		1->0 = Revised Russian Roulette
@@ -15,7 +17,8 @@
 	transform to another = 777. Swap Adjacent in LR String;
 
 [matrix]
-	(0,0)->(1,1) = 778. Swim in Rising Water
+	(0,0)->(n-1,n-1) = 778. Swim in Rising Water
+	sum of submatrix = Maximum sum Rectangle
 
 [numbers]
 	find rule = 779. K-th Symbol in Grammar;
