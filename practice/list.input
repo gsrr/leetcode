@@ -9,6 +9,7 @@
 	item convert = Acid Naming;
 	go and replace(stock problem) = A Race Against Time;
 	sum of subarray = Largest Sum Contiguous Subarray;
+	mode number = Picking Numbers;
 	
 	[01array]
 		1->0 = Revised Russian Roulette
@@ -19,6 +20,9 @@
 [matrix]
 	(0,0)->(n-1,n-1) = 778. Swim in Rising Water
 	sum of submatrix = Maximum sum Rectangle
+
+[number]
+	factor = Factors Sum;Factorial;
 
 [numbers]
 	find rule = 779. K-th Symbol in Grammar;
