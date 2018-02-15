@@ -18,7 +18,7 @@
 	transform to another = 777. Swap Adjacent in LR String;
 
 [matrix]
-	(0,0)->(n-1,n-1) = 778. Swim in Rising Water
+	(0,0)->(n-1,n-1) = 778. Swim in Rising Water;64. Minimum Path Sum
 	sum of submatrix = Maximum sum Rectangle
 
 [number]
