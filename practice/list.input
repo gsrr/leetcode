@@ -1,6 +1,7 @@
 [tree]
 	[Binary Search Tree]
-		tree-split = 776. Split BST
+		tree-split = 776. Split BST;
+		height = Height and Total Height of a BST
 
 [array]
 	peak element = 162. Find Peak Element;
@@ -10,6 +11,8 @@
 	go and replace(stock problem) = A Race Against Time;
 	sum of subarray = Largest Sum Contiguous Subarray;
 	mode number = Picking Numbers;
+	buy most things = Exam Rush;
+	interval information = Server Room Safety;
 	
 	[01array]
 		1->0 = Revised Russian Roulette
