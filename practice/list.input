@@ -13,6 +13,10 @@
 	mode number = Picking Numbers;
 	buy most things = Exam Rush;
 	interval information = Server Room Safety;
+	kth element = 784. Letter Case Permutation;
+	fraction = 786. K-th Smallest Prime Fraction;
+	permutation = 784. Letter Case Permutation 
+	search = 784. Letter Case Permutation;
 	
 	[01array]
 		1->0 = Revised Russian Roulette
