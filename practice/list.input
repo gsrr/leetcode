@@ -21,7 +21,8 @@
 	
     [array + one number]
 	    kth element = Kth Smallest/Largest Element in Unsorted Array;
-	    combination sum = 40. Combination Sum II;
+	    sum = 40. Combination Sum II;
+	    counter = Summer Lesson;	
 
 	[01array]
 		1->0 = Revised Russian Roulette
