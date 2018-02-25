@@ -29,6 +29,8 @@
 
 [two arrays]
 	transform to another = 777. Swap Adjacent in LR String;
+	[two string]
+		sort = 791. Custom Sort String;
 
 [matrix]
 	(0,0)->(n-1,n-1) = 778. Swim in Rising Water;64. Minimum Path Sum
