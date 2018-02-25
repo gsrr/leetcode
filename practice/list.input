@@ -39,6 +39,7 @@
 
 [numbers]
 	find rule = 779. K-th Symbol in Grammar;
+	digit = 788. Rotated Digits;
 
 [two strings]
 	substring = 771. Jewels and Stones
