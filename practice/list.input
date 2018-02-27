@@ -15,10 +15,11 @@
 	interval information = Server Room Safety;
 	fraction = 786. K-th Smallest Prime Fraction;
 	permutation = 784. Letter Case Permutation;Permutations of a given string
-    combination =
-    subset = 90. Subsets II;
+    	combination =
+    	subset = 90. Subsets II;
 	search = 
-	
+    [string]
+    	strstr = 28. Implement strStr();
     [array + one number]
 	    kth element = Kth Smallest/Largest Element in Unsorted Array;
 	    sum = 40. Combination Sum II;
