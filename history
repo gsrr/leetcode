@@ -1,4 +1,6 @@
-[20170219]-[20170225]
+[20180226]-[20180304]
+
+[20180219]-[20180225]:9
 dest-20180425-419-791. Custom Sort String
 dest-20180424-418-788. Rotated Digits
 dest-20180423-417-Cubes and Cylinders
@@ -9,8 +11,7 @@ dest-20180419-413-Permutations of a given string
 dest-20180418-412-K’th smallest element
 dest-20180417-411-786. K-th Smallest Prime Fraction
 
-
-[20170212]-[20170218]:8
+[20180212]-[20180218]:8
 dest-20180416-410-784. Letter Case Permutation
 dest-20180415-409-Height and Total Height of a BST
 dest-20180414-408-Server Room Safety
@@ -20,7 +21,7 @@ dest-20180411-405-Factors Sum
 dest-20180410-404-Picking Numbers
 dest-20180409-403-781. Rabbits in Forest
 
-[20170205]-[20170211]:9
+[20180205]-[20180211]:9
 dest-20180408-402-783. Minimum Distance Between BST Nodes
 dest-20180407-401-Maximum sum Rectangle
 dest-20180406-400-Kadane's Algorithm
@@ -31,7 +32,7 @@ dest-20180402-396-Revised Russian Roulette
 dest-20180401-395-777. Swap Adjacent in LR String
 dest-20180331-394-Acid Naming
 
-[20170129]-[20170204]:6
+[20180129]-[20180204]:6
 dest-20180330-393-776. Split BST
 dest-20180329-392-779. K-th Symbol in Grammar
 dest-20180328-391-162. Find Peak Element
@@ -39,32 +40,32 @@ dest-20180327-390-Combo Meal
 dest-20180326-389-775. Global and Local Inversions
 dest-20180325-388-771. Jewels and Stones
 
-[20170122]-[20170128]:4
+[20180122]-[20180128]:4
 dest-20180324-387-Winning Lottery Ticket
 dest-20180323-386-Programming Competition
 dest-20180322-385-769. Max Chunks To Make Sorted
 dest-20180321-384-768. Max Chunks To Make Sorted II
 
-[20170121]
+[20180121]
 dest-20180320-383-767. Reorganize String
 dest-20180319-382-766. Toeplitz Matrix
 dest-20180318-381-Insertion Sort (Function Problem)
 dest-20180317-380-Sort The Array
 
-[20170120]
+[20180120]
 dest-20180316-379-Largest Even Number
 
-[20170117]
+[20180117]
 dest-20180315-378-Counting Sort 2
 
-[20170110]
+[20180110]
 dest-20180314-377-762. Prime Number of Set Bits in Binary Representation
 dest-20180313-376-763. partition labels
 
-[20170109]
+[20180109]
 dest-20180312-375-Longest Prefix Suffix
 
-[20170108]
+[20180108]
 dest-20180311-374-760. Find Anagram Mappings
 dest-20180310-373-758. Bold Words in String
 
