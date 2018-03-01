@@ -18,8 +18,11 @@
     	combination =
     	subset = 90. Subsets II;
 	search = 
-    [string]
-    	strstr = 28. Implement strStr();
+	preprocessing = Failure function;Suffix array;
+
+    [string + stirng]
+    	strstr = 28. Implement strStr();Maximum Permutation;
+
     [array + one number]
 	    kth element = Kth Smallest/Largest Element in Unsorted Array;
 	    sum = 40. Combination Sum II;
@@ -28,10 +31,13 @@
 	[01array]
 		1->0 = Revised Russian Roulette
 
-[two arrays]
-	transform to another = 777. Swap Adjacent in LR String;
-	[two string]
-		sort = 791. Custom Sort String;
+	[arrays]	
+
+	[two arrays]
+		transform to another = 777. Swap Adjacent in LR String;
+		common_prefix = 14. Longest Common Prefix;
+		[two string]
+			sort = 791. Custom Sort String;
 
 [matrix]
 	(0,0)->(n-1,n-1) = 778. Swim in Rising Water;64. Minimum Path Sum
