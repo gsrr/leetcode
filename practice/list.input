@@ -42,6 +42,7 @@
 [matrix]
 	(0,0)->(n-1,n-1) = 778. Swim in Rising Water;64. Minimum Path Sum
 	sum of submatrix = Maximum sum Rectangle
+	chess = 794. Valid Tic-Tac-Toe State;
 
 [number]
 	map = Train Ticket;
