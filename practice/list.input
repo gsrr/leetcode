@@ -9,7 +9,7 @@
 	Inversion Count = 775. Global and Local Inversions; insertion sort
 	item convert = Acid Naming;
 	go and replace(stock problem) = A Race Against Time;
-	sum of subarray = Largest Sum Contiguous Subarray;
+	sum of subarray = Largest Sum Contiguous Subarray;209. Minimum Size Subarray Sum.py;
 	finding number = Picking Numbers;Majority Element;Maximum repeating number;
 	buy most things = Exam Rush;
 	interval information = Server Room Safety;
@@ -38,6 +38,7 @@
 		common_prefix = 14. Longest Common Prefix;
 		[two string]
 			sort = 791. Custom Sort String;
+			the target string will be remove if matched = Gift Boxes;
 
 [matrix]
 	(0,0)->(n-1,n-1) = 778. Swim in Rising Water;64. Minimum Path Sum
