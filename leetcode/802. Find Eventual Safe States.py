@@ -21,11 +21,16 @@ def find_circle(graph, path, node):
 def find_all_circle(graph, path, hist, node, safe_node):
     hist[node] += 1
     path[node] = True
+    if len(graph[node]) == 0: # terminal node
+        for p_node in path:
+            if safe_node[p_node] != 2:
+                safe_node[p_node] = 1 # type 1 is terminal node.
+       
     for next_node in graph[node]:
         if path.has_key(next_node): # have cycle
             print path
             for p_node in path:
-                safe_node[p_node] += 1
+                safe_node[p_node] = 2 # type 2 is cycle node.
         if hist[next_node] != 0:
             continue
         find_all_circle(graph, path, hist, next_node, safe_node)
