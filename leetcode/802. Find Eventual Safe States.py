@@ -19,19 +19,26 @@ def find_circle(graph, path, node):
     return False
 
 def find_all_circle(graph, path, hist, node, safe_node):
-    hist[node] += 1
     path[node] = True
     if len(graph[node]) == 0: # terminal node
-        for p_node in path:
+        for p_node in path.keys():
             if safe_node[p_node] != 2:
                 safe_node[p_node] = 1 # type 1 is terminal node.
-       
+
     for next_node in graph[node]:
         if path.has_key(next_node): # have cycle
-            print path
-            for p_node in path:
+            #print path
+            for p_node in path.keys():
                 safe_node[p_node] = 2 # type 2 is cycle node.
-        if hist[next_node] != 0:
+            continue
+        if safe_node[next_node] != 0:
+            if safe_node[next_node] == 2:
+                for p_node in path.keys():
+                    safe_node[p_node] = 2
+            else:
+                for p_node in path.keys():
+                    if safe_node[p_node] != 2:
+                        safe_node[p_node] = 1
             continue
         find_all_circle(graph, path, hist, next_node, safe_node)
     del path[node]
@@ -58,7 +65,7 @@ def ans2(graph):
         hist = [0] * len(graph)
         path = {}
         find_all_circle(graph, path, hist, i, cycle_node)
-    return [i for i in xrange(len(cycle_node)) if cycle_node[i] == 0]
+    return [i for i in xrange(len(cycle_node)) if cycle_node[i] == 1]
 
 class Solution(object):
     def eventualSafeNodes(self, graph):
