@@ -1,5 +1,4 @@
-'''
-se note that it's Function problem i.e.
+'''Please note that it's Function problem i.e.
 you need to write your solution in the form of Function(s) only.
 Driver Code to call/invoke your function would be added by GfG's Online Judge.'''
 
@@ -19,6 +18,9 @@ def topoSort_util(v, graph, hist, stack):
     
 def topoSort(n, graph):
     # Code here
+    '''
+    Time complexity : O(V + E) --> we will run all nodes and all edges.
+    '''
     hist = {}
     stack = []
     for v in range(n):
@@ -26,4 +28,4 @@ def topoSort(n, graph):
             topoSort_util(v, graph, hist, stack)
     #print (stack)
     #print (stack[::-1])
-    return stack[::-1]
+    return stack[::-1]`
