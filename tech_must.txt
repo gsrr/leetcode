@@ -1,0 +1,3 @@
+[matrix]
+	1. transpose matrix
+	2. rotate matrix by 90 degrees
