@@ -1,8 +1,3 @@
-# Your task is to complete this function
-# Function should return True/False or 1/0
-# Graph(graph) is a defaultict of type List
-# n is no of Vertices's
-
 def bfs(u, graph, hist):
     q = [(-1, u)]
     while len(q) != 0:
@@ -15,8 +10,8 @@ def bfs(u, graph, hist):
                 continue
             q.append((v, nv))
     return False
-
-def has_cycle(graph):
+    
+def has_cycle_bfs(graph):
     hist = {}
     for key in graph.keys():
         if key in hist:
@@ -25,9 +20,31 @@ def has_cycle(graph):
             return True
     return False
 
+def dfs(u, graph, hist, parent):
+    if u in hist:
+        return True
+    
+    hist[u] = True
+    for v in graph[u]:
+        if v != parent:
+            ret = dfs(v, graph, hist, u)
+            if ret == True:
+                return True
+    return False
+
+def has_cycle_dfs(graph):
+    hist = {}
+    for key in graph.keys():
+        if key in hist:
+            continue
+        if dfs(key, graph, hist, -1) == True:
+            return True
+    return False
+
+
 def isCyclic(n, graph):
     # Code here
-    if has_cycle(graph) == True:
+    if has_cycle_dfs(graph) == True:
         return 1
     else:
         return 0
