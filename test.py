@@ -1,23 +1,53 @@
-import collections
+#!/bin/python3
 
-def ans(A):
-    A.sort()
-    dic = collections.Counter(A)
-    cnt = len(A)
-    print A
-    for i in xrange(len(A)):
-        for j in xrange(len(A)):
-            val = A[i] * A[j]
-            if dic.has_key(val):
-                cnt += (dic[A[i]] * dic[A[j]])
-                dic[val] += (dic[A[i]] * dic[A[j]])
-    return cnt
+import os
+import sys
 
-class Solution(object):
-    def numFactoredBinaryTrees(self, A):
-        """
-        :type A: List[int]
-        :rtype: int
-        """
-        return ans(A)
-        
+def f(a, m, k):
+    ans = 0
+    f = {1: 1}
+    p = 1
+    for x in a:
+        p = p * x % m
+        print ("p:%d, p_inverse:%d"%(p, pow(k, m - 2, m)))
+        ans += f.get(p * pow(k, m - 2, m) % m, 0)
+        f[p] = f.get(p, 0) + 1
+    
+    return ans
+
+def howManyGoodSubarrays(A, m, k):
+    a = []
+    ans = 0
+    y = 0
+    for x in A:
+        if x % m != 0:
+            a += [x]
+        else:
+            ans += f(a, m, k)
+            y += len(a) * (len(a) + 1) // 2
+            a = []
+    
+    ans += f(a, m, k)
+    y += len(a) * (len(a) + 1) // 2
+    
+    if k == 0: ans = len(A) * (len(A) + 1) // 2 - y
+    
+    return ans
+
+if __name__ == '__main__':
+    t = int(input())
+    for t_itr in range(t):
+        nmk = input().split()
+
+        n = int(nmk[0])
+
+        m = int(nmk[1])
+
+        k = int(nmk[2])
+
+        A = list(map(int, input().rstrip().split()))
+
+        print (n,m,k)
+        print (A)
+        result = howManyGoodSubarrays(A, m, k)
+        print ("result:%d"%result)
