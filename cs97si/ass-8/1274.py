@@ -1,4 +1,13 @@
 
+def read_int2():
+    a, b = map(int, raw_input().strip().split())
+    return a, b
+
+def read_arr():
+    arr = list(map(int, raw_input().strip().split()))
+    return arr
+
+
 def recur_util(graph, s, t, parent, visited):
     if s == t:
         return True
@@ -39,18 +48,23 @@ def dfs(graph, s, t):
         visited = [0] * len(graph)
     print gval 
 
-def ans(graph, n):
-    dfs(graph, 0, n - 1) 
+def ans(graph, s, t):
+    dfs(graph, s, t)
 
 def main():
-    M, N = map(int, raw_input().strip().split())
-    graph = [[0] * N for _ in xrange(N)]
-    for _ in xrange(M):
-        u, v, w = map(int, raw_input().strip().split())
-        u -= 1
-        v -= 1
-        graph[u][v] = w
-    ans(graph, N)
+    N, M = read_int2()
+    graph = [[0] * (N + M + 2) for _ in xrange(N + M + 2)] # bi-partile
+    for i in xrange(1, N + 1):
+        graph[0][i] = 1
+
+    for i in xrange(N + 1, N + M + 1):
+        graph[i][N + M + 1] = 1
+
+    for i in xrange(1, N + 1):
+        arr = read_arr()
+        for j in xrange(1, arr[0] + 1):
+            graph[i][arr[j] + N] = 1
+    ans(graph, 0, N + M + 1)
 
 if __name__ == "__main__":
     main()
