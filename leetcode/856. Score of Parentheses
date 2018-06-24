@@ -1,0 +1,38 @@
+def split(S):
+    ret = []
+    st = []
+    q = []
+    for i in xrange(len(S)):
+        q.append(S[i])
+        if S[i] == "(":
+            st.append(S[i])
+        else:
+            st.pop()
+        if len(st) == 0:
+            ret.append("".join(q))
+            q = []
+    return ret
+
+def ans(S):
+    if S == "()":
+        return 1
+    
+    score = 0
+    sarr = split(S)
+    if len(sarr) == 1:
+        score = 2 * ans(S[1:-1])
+        return score
+    
+    for i in xrange(len(sarr)):
+        score += ans(sarr[i])
+    return score
+    
+    
+class Solution(object):
+    def scoreOfParentheses(self, S):
+        """
+        :type S: str
+        :rtype: int
+        """
+        return ans(S)
+        
