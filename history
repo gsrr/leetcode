@@ -1,7 +1,8 @@
 [201800730]-[20180805]:
+dest-20181025-602-877. Stone Game (dynamic programming)
 
 [201800723]-[20180729]:7
-dest-20181024-601-877. Stone Game
+dest-20181024-601-877. Stone Game (minMax algorithm;same as leetcode 486)
 dest-20181023-600-876. Middle of the Linked List
 dest-20181022-599-Fix the Cycles(Bellman, cycle-cancel)
 dest-20181021-598-Fix the Cycles
