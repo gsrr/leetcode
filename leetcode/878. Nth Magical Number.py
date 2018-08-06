@@ -21,6 +21,28 @@ def ans(n, a, b):
     v2 = min(a * (val/a + 1), b * (val/b + 1))
     return v2 % base
 
+def get_cnt(mid, a, b, lab):
+    return mid/a + mid/b - mid/lab
+
+def ans1(n, a, b):
+    base = 10**9 + 7
+    lab = lcm(a, b)
+    s = min(a, b)
+    e = (min(a, b) * n) + 1
+    #print n, s, e
+    mid = 0
+    while s < e:
+        mid = (s + e) // 2
+        #print s, e, mid
+        cnt = get_cnt(mid, a, b, lab)
+        if cnt == n:
+            e = mid
+        elif cnt > n:
+            e = mid
+        elif cnt < n:
+            s = mid + 1
+    return ((s + e) /2) % base
+        
 class Solution(object):
     def nthMagicalNumber(self, N, A, B):
         """
@@ -29,4 +51,4 @@ class Solution(object):
         :type B: int
         :rtype: int
         """
-        return ans(N, A, B)
+        return ans1(N, A, B)
