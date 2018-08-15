@@ -1,8 +1,9 @@
 [20180813]-[20180819]:
+dest-20181107-615-886. Possible Bipartition(dfs)
 
 [20180806]-[20180812]:8
 dest-20181106-614-885. Spiral Matrix III
-dest-20181105-613-886. Possible Bipartition
+dest-20181105-613-886. Possible Bipartition(bfs)
 dest-20181104-612-884. Uncommon Words from Two Sentences
 dest-20181103-611-713. Subarray Product Less Than K
 dest-20181102-610-879. Profitable Schemes(knapsack, sum of subset)
