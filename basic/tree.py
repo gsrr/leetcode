@@ -1,7 +1,6 @@
 import random
 import time
 
-
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -31,21 +30,3 @@ def tree_create(arr):
     for i in arr:
         root = tree_insert(i, root)
     return root
-
-def bfs(root):
-    ret = []
-    q = [root]
-    for item in q:
-        if item != None:
-            ret.append(item.val)
-            q.append(item.left)
-            q.append(item.right)
-    return ret
-
-def test_bfs_tree():
-    arr = [random.randint(0,100) for i in xrange(10)]
-    print arr
-    root = tree_create(arr)
-    print bfs(root)
-
-test_bfs_tree()
