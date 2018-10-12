@@ -1,3 +1,8 @@
+[Properties]
+    1. 從前面走, 跟從後面走的字串是相同的
+    2. 從中間往左走跟往右走的字串是相同的.
+    3. 
+
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
 	2. 7. Reverse Integer (給一個數字, 反轉該數字)
@@ -6,6 +11,7 @@
     --> 基本上邏輯同[3]
     5. 234. Palindrome Linked List (給定一個list, 判斷它是否為palindrome)
     --> 這個是因為linked list為單向, 若為雙向的話, 基本上就跟[1]相同.
+    --> 可以利用palindrom的特性: 從中間往左走跟往右走是相同的.
 
 
 
