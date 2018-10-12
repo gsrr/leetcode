@@ -1,7 +1,13 @@
 [Leetcode]
-	9. Palindrome Number (給一個數字, 問該數字是否為迴文)
-	7. Reverse Integer (給一個數字, 反轉該數字)
-	266. Palindrome Permutation (給一個字串, 判斷是否可以排列組合成迴文)
+	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
+	2. 7. Reverse Integer (給一個數字, 反轉該數字)
+	3. 266. Palindrome Permutation (給一個字串, 判斷是否可以排列組合成迴文)
+    4. 409. Longest Palindrome(給一個字串, 回傳可以組成最長的palindrome(只能由該string取出character))
+    --> 基本上邏輯同[3]
+    5. 234. Palindrome Linked List (給定一個list, 判斷它是否為palindrome)
+    --> 這個是因為linked list為單向, 若為雙向的話, 基本上就跟[1]相同.
+
+
 
 [GeekForGeeks]
 	
