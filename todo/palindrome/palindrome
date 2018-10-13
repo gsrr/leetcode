@@ -1,18 +1,38 @@
 [Properties]
     1. 從前面走, 跟從後面走的字串是相同的
     2. 從中間往左走跟往右走的字串是相同的.
-    3. 
+    3. Longest common subsequence--> str跟reverse str的longest common subsequence為最長的.
+       (就是等於自己)
+    4. 若想要透過刪除找到palindrome, 不存在ss[s] == ss[e]時, 找s + 1, e or s, e - 1的case.
+       (也就是ss[s] == ss[e]時, 下一步只有s + 1, e - 1這個case)
 
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
 	2. 7. Reverse Integer (給一個數字, 反轉該數字)
 	3. 266. Palindrome Permutation (給一個字串, 判斷是否可以排列組合成迴文)
     4. 409. Longest Palindrome(給一個字串, 回傳可以組成最長的palindrome(只能由該string取出character))
-    --> 基本上邏輯同[3]
+      --> 基本上邏輯同[3]
     5. 234. Palindrome Linked List (給定一個list, 判斷它是否為palindrome)
-    --> 這個是因為linked list為單向, 若為雙向的話, 基本上就跟[1]相同.
-    --> 可以利用palindrom的特性: 從中間往左走跟往右走是相同的.
+      --> 這個是因為linked list為單向, 若為雙向的話, 基本上就跟[1]相同.
+      --> 可以利用palindrom的特性: 從中間往左走跟往右走是相同的.
+    6. 125. Valid Palindrome (給定一個字串, 判斷它是否迴文, 但有條件, 只針對數字, 字母,且ignore case.)
+      --> 其實就是先做處理, 只留數字, 字母, 並把字母轉成小寫, 這樣就跟[1]一樣.
+    7. 680. Valid Palindrome II 
+      - Description:
+        1. 給定一個字串,判斷是否迴文, 但有條件, 你最多可以刪除一個character.
+        2. 有限制, 字串長度最多為50000
 
+      --> 可以使用Longese common subsequence的遞迴解法來判斷.
+      --> 因為其實就是str跟reverse-str的longest common subsequence長度比原先的<=1 就是True.
+          (但不能這樣解, 因為time complexity會太大 - 字串長度可以到50000)
+      --> 其實好像也沒有這麼複雜, 因為只能刪除最多一次, 所以如果刪除後, 只要判斷整各string就好了.
+      --> 原本是認為總共有三種case(不論為相同或不相同)
+          1. ss[s] == ss[e] --> s + 1, e - 1 or s + 1, e or s, e - 1
+          2. ss[s] != ss[e] --> s + 1, e or s, e - 1
+          但是相同的話,並不存在e - 1 or s + 1, e or s, e - 1來找到palindrome.
+          for example:
+          abccbaa, 若存在相同,且刪掉後可以找到palindrome, 那一定也可以刪除裡面那一個來找到同樣的palindrome.
+          因為ss[s] 一定會等於 ss[e]與ss[e - 1] 
 
 
 [GeekForGeeks]
