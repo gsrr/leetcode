@@ -3,8 +3,11 @@
     2. 從中間往左走跟往右走的字串是相同的.
     3. Longest common subsequence--> str跟reverse str的longest common subsequence為最長的.
        (就是等於自己)
-    4. 若想要透過刪除找到palindrome, 不存在ss[s] == ss[e]時, 找s + 1, e or s, e - 1的case.
+    4. 若想要透過刪除找到palindrome, 不存在ss[s] == ss[e]時, 
+        找s + 1, e or s, e - 1的case.
        (也就是ss[s] == ss[e]時, 下一步只有s + 1, e - 1這個case)
+    5. palindrome是可以組出來的, 因為前半部跟後半部是一樣的, 
+        所以只要知道一半就可以組出來.
 
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
@@ -33,7 +36,22 @@
           for example:
           abccbaa, 若存在相同,且刪掉後可以找到palindrome, 那一定也可以刪除裡面那一個來找到同樣的palindrome.
           因為ss[s] 一定會等於 ss[e]與ss[e - 1] 
+    8. 479. Largest Palindrome Product
+        - Description:
+            1. 給一個number, 找一個迴文, 而這個迴文必須由兩個n位數的數字相乘.
 
+        - Analysis:
+            這題大概就兩個思路:
+            1. 把所有n位數兩兩相乘, 判斷是否為迴文.
+                --> Time Complexity太高, 因為位數最高為8
+            2. 因為知道是兩個n位數相乘, 所以可以得到最大值,
+                且兩個n位數相乘, 最後的位數一定<= 2n, 且一定小於pow(10, n) * pow(10, n).
+                以n = 3為例, 最大值為999 * 999, 一定小於1000 * 1000.
+                所以一定小於1000 * 1000 - 1 = 999999,
+                因為只找迴文, 所以可以從中切一半--> 999, 998, 997, 996, ...
+                再組成迴文來判斷是否可以被兩個n位數所整除, 若是則為答案.
+                --> Time complexity為O(n*sqrt(n)), 這是pseudo polynomial, 因為n+1, 成長為指數倍.
+                    只是演算法看起來像是polynomial而已.
 
 [GeekForGeeks]
 	
