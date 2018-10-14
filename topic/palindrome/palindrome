@@ -53,5 +53,14 @@
                 --> Time complexity為O(n*sqrt(n)), 這是pseudo polynomial, 因為n+1, 成長為指數倍.
                     只是演算法看起來像是polynomial而已.
 
+    9. 131. Palindrome Partitioning
+        - Description
+            1. 給定一個字串, 問可以切割成多少substring組合, 且每個substring都是palindrome.
+        - Analysis
+            1. 基本上就是遞迴求解, 只是每個substring要判斷是否為palindrome.
+            2. 遞迴求解有兩個方式, 一個是在最末端決定答案, 
+                另一個則是在一開始合併其它遞迴式的結果來得到答案.
+    
+    10. 132. Palindrome Partitioning II
 [GeekForGeeks]
 	
