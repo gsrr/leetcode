@@ -62,5 +62,10 @@
                 另一個則是在一開始合併其它遞迴式的結果來得到答案.
     
     10. 132. Palindrome Partitioning II
+        - Description
+            1. 給一個string, 想得到minimal cut, 且cut後的結果每個部分都是palindrome.
+        
+        - Analysis
+            1. 
 [GeekForGeeks]
 	
