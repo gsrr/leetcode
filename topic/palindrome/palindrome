@@ -8,6 +8,10 @@
        (也就是ss[s] == ss[e]時, 下一步只有s + 1, e - 1這個case)
     5. palindrome是可以組出來的, 因為前半部跟後半部是一樣的, 
         所以只要知道一半就可以組出來.
+    6. 若要判斷一個string裡面的所有subtring是否為palindrome, 那麼可以使用dp solution, 
+       其recurrence relation為:
+       dp[i][j] = True, if s[i] == s[j] and dp[i + 1][j - 1] == True
+       dp[i][j] = False, if s[i] != s[j] or s[i] == s[j] but dp[i + 1][j - 1] == False
 
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
@@ -66,6 +70,11 @@
             1. 給一個string, 想得到minimal cut, 且cut後的結果每個部分都是palindrome.
         
         - Analysis
-            1. 
+            1. 基本上就是dp (or recursive + cache)
+            2. 但有一個問題就是每次要判斷是否為palindrome會花費太久時間.
+              -->可以使用一個2-dims-array來記錄每個subtring是否為palindrome.
+              --> palindrome的特質, 若s[i] == s[j], 此時若s[i+1] ~ s[j - 1]為True, 那s[i]~s[j]就是True(palindrome)
+                --> 但若s[i] ! = s[j], 那麼s[i] ~ s[j]就一定為False(不是palindrom.)
+                (基本上這也是一個dp solution.)
 [GeekForGeeks]
 	
