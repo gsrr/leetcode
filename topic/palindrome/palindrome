@@ -12,13 +12,17 @@
        其recurrence relation為:
        dp[i][j] = True, if s[i] == s[j] and dp[i + 1][j - 1] == True
        dp[i][j] = False, if s[i] != s[j] or s[i] == s[j] but dp[i + 1][j - 1] == False
+    7. palindrome有單數長度與雙數長度兩種:
+      單數長度: 有一個character的數目為單數, 其它為雙數.
+      雙數長度: 所有character的數目都是雙數.
 
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
 	2. 7. Reverse Integer (給一個數字, 反轉該數字)
 	3. 266. Palindrome Permutation (給一個字串, 判斷是否可以排列組合成迴文)
+      --> prob. #7
     4. 409. Longest Palindrome(給一個字串, 回傳可以組成最長的palindrome(只能由該string取出character))
-      --> 基本上邏輯同[3]
+      --> 基本上邏輯同[3] (prob. #7)
     5. 234. Palindrome Linked List (給定一個list, 判斷它是否為palindrome)
       --> 這個是因為linked list為單向, 若為雙向的話, 基本上就跟[1]相同.
       --> 可以利用palindrom的特性: 從中間往左走跟往右走是相同的.
@@ -76,5 +80,30 @@
               --> palindrome的特質, 若s[i] == s[j], 此時若s[i+1] ~ s[j - 1]為True, 那s[i]~s[j]就是True(palindrome)
                 --> 但若s[i] ! = s[j], 那麼s[i] ~ s[j]就一定為False(不是palindrom.)
                 (基本上這也是一個dp solution.)
+
+    11. 267. Palindrome Permutation II
+        - Description
+            1. 給一個string, 問可以組成哪些palindrome(只能用該string裡面的character.)  
+        - 使用prob.7
+    
+    12. 906. Super Palindromes
+        - Description
+            1. super palindrome指的是一個數是palindrome, 且其平方根也是palindrome.
+            2. 給一個range, 找出裡面有多少super palindrome.
+        - Analyis
+            1. prob.5 
+            2. 這一題跟#13其實類似, 就是組出所有可能的palindrome, 判斷其是否為super palindrome.
+            3. 因為從題目可以看出來, L的最大長度是18, 所以符合L長度的palindrome可能性為18/2 = 9, 也就是10^9種. 這一看就會太大, 所以在想一下, 這是一個super palindrome, 所以只要找出他的平方根即可, 所以9再除以2, 也就是約為5, 那代表我們只要找10^5這個範圍的palindrome即可(再將其平方判斷是否為palindrome). 
+
+    13. 866. Prime Palindrome
+        - Description
+            1. Prime Palindrome --> 一個數是prime and palindrome.
+            2. 給定一個N, 找出離N最近的prime palindrome.
+
+        - Analysis
+            1. 這題其實沒什麼好看的, 就是從N開始一個個找看看是否為palindrome.
+            --> 但這樣時間會很久, 所以應該改從N開始, 組出palindrome, 再看看是否為prime. (因為palindrome是可以組出來的, 但prime是沒有辦法的.)
+            prob.5
+
 [GeekForGeeks]
 	
