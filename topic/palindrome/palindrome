@@ -13,8 +13,10 @@
        dp[i][j] = True, if s[i] == s[j] and dp[i + 1][j - 1] == True
        dp[i][j] = False, if s[i] != s[j] or s[i] == s[j] but dp[i + 1][j - 1] == False
     7. palindrome有單數長度與雙數長度兩種:
-      單數長度: 有一個character的數目為單數, 其它為雙數.
-      雙數長度: 所有character的數目都是雙數.
+       單數長度: 有一個character的數目為單數, 其它為雙數.
+       雙數長度: 所有character的數目都是雙數.
+    8. prob.5的延伸, palindrome是可以組出來的, 但有分為組出左邊或組出右邊, 兩邊的順序會不一樣,
+       像abcde 組出右邊為:e -> ed -> edc -> edcb -> edcba, 而組出左邊為:a -> ba -> cba -> dcba -> edcba
 
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
@@ -105,5 +107,19 @@
             --> 但這樣時間會很久, 所以應該改從N開始, 組出palindrome, 再看看是否為prime. (因為palindrome是可以組出來的, 但prime是沒有辦法的.)
             prob.5
 
+    14. 336. Palindrome Pairs
+        - Description
+            1. 給定一個word list, 輸出一個list, 其中item為[i, j], 代表word[i] + word[j]是一個palindrome
+
+        - Analysis
+            1. 一開始用暴力法, 就是兩兩去merge, 判斷是否為palindrome. --> 當然結果是timeout了.
+            2. 那就想說是否可以縮短比較的數目, 從資料觀察得到, string1 加上string2是否為palindrome,
+                那string2與string1一定有某種關係, 也就是:
+                - 若string1 = "abcd", 那string2只可能會是d, dc, dcb, dcba (若string2在string1的右邊)
+                - 那相對的,若string2在string1的左邊, 那string2只可能是: a, ba, cba, dcba.
+            3. prob.8          
+
+    15. 214. Shortest Palindrome
+        - Description 
 [GeekForGeeks]
 	
