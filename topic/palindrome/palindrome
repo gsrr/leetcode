@@ -137,5 +137,16 @@
                就可以得到與開頭相同的最長字串長度.
                (但我們要的是reserved string與原本string的最長相同字串, 所以應該在reversed string加上一個character, 讓failure function歸0)
             4. prob.10
+
+    16. 564. Find the Closest Palindrome
+        - Description
+            1. 這題是給定一個數字string, 問說最接近他的palindrome number為何?
+        
+        - Analysis
+            1. 其實就是prob.5, 但當然不能夠從頭列舉, 時間會超過, 所以只要取該數字的一半來建出palindrome即可, 而+1就會超過(或者原先就已經超過), -1就會小於原本數字(或者原先就已經小於).
+            2. 而需要處理的case只有:
+                2.1 +1的時候位數多一位, 這種case數字就會是11, 101, 1001, 10001,..
+                2.2 -1的時候位數少一位, 這種case數字就會是9, 99, 999, 9999,...
+
 [GeekForGeeks]
 	
