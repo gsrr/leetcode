@@ -23,6 +23,12 @@
         若一個string為aabaadef, 則其reverted string為fedaabaa, 那可以將兩個string串在一起(ex:aabaadef#fedaabaa)
         使用KMP 的failure function algorithm來尋找.
 
+    11. 在prob.6中, 是以外往內的方式來看, 也就是a...a要是palindrome的string的話, 裡面的substring也必須是.
+        但有另外一個角度, 就是palindrome string是可以從中間長出去的--> middle, (middle - 1, middle + 1), ...
+        這個方式在某些case上速度上會比較快一點(由O(n^2) --> O(n)),像是abcde, 這時就不像prob.6為O(n^2), 只要O(n)就可以得到最長的palindrome substring了(因為從middle一往外就會false.)
+        但在某些case下, 像是aaaaaa, 這個的time complexity就會跟prob.6一樣.
+
+
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
 	2. 7. Reverse Integer (給一個數字, 反轉該數字)
@@ -48,6 +54,9 @@
           1. ss[s] == ss[e] --> s + 1, e - 1 or s + 1, e or s, e - 1
           2. ss[s] != ss[e] --> s + 1, e or s, e - 1
           但是相同的話,並不存在e - 1 or s + 1, e or s, e - 1來找到palindrome.
+          for example:
+          abccbaa, 若存在相同,且刪掉後可以找到palindrome, 那一定也可以刪除裡面那一個來找到同樣的palindrome.
+          因為ss[s] 一定會等於 ss[e]與ss[e - 1] 
           for example:
           abccbaa, 若存在相同,且刪掉後可以找到palindrome, 那一定也可以刪除裡面那一個來找到同樣的palindrome.
           因為ss[s] 一定會等於 ss[e]與ss[e - 1] 
@@ -111,9 +120,6 @@
             1. 這題其實沒什麼好看的, 就是從N開始一個個找看看是否為palindrome.
             --> 但這樣時間會很久, 所以應該改從N開始, 組出palindrome, 再看看是否為prime. (因為palindrome是可以組出來的, 但prime是沒有辦法的.)
             prob.5
-
-    14. 336. Palindrome Pairs
-        - Description
             1. 給定一個word list, 輸出一個list, 其中item為[i, j], 代表word[i] + word[j]是一個palindrome
 
         - Analysis
@@ -148,5 +154,13 @@
                 2.1 +1的時候位數多一位, 這種case數字就會是11, 101, 1001, 10001,..
                 2.2 -1的時候位數少一位, 這種case數字就會是9, 99, 999, 9999,...
 
+    17. 5. Longest Palindromic Substring
+        - Description
+            1. 給定一個string, 問其中最長的palindromic substring為何?
+
+        - Analysis
+            1. 就是prob.6, 使用dp solution, 但一開始有遇到time expired的問題, 
+                把string改成不要每次assign之後就通過了.
+            2. prob.11
 [GeekForGeeks]
 	
