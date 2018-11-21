@@ -17,6 +17,11 @@
        雙數長度: 所有character的數目都是雙數.
     8. prob.5的延伸, palindrome是可以組出來的, 但有分為組出左邊或組出右邊, 兩邊的順序會不一樣,
        像abcde 組出右邊為:e -> ed -> edc -> edcb -> edcba, 而組出左邊為:a -> ba -> cba -> dcba -> edcba
+    9. 給定一個str1與其reverted string str2, 那str1與str2的相同連續子字串就是str1裡面的palindrome string. 
+    10. 給定一個字串,  尋找從左邊開頭的最長palindrome string.
+        類似prob. 9, 但因為一定要從左開頭, 所以可透過KMP 的failure function來尋找.
+        若一個string為aabaadef, 則其reverted string為fedaabaa, 那可以將兩個string串在一起(ex:aabaadef#fedaabaa)
+        使用KMP 的failure function algorithm來尋找.
 
 [Leetcode]
 	1. 9. Palindrome Number (給一個數字, 問該數字是否為迴文)
@@ -121,5 +126,16 @@
 
     15. 214. Shortest Palindrome
         - Description 
+            1. 這題是給定一個string, 且我們可以在字串左邊加入任意數目的character, 請問可以組成的最小長度palindrome是什麼?
+
+        - Analysis
+            1. 無奈, 這題沒想出來, 有一些地方沒注意到, 雖然有注意到只要找從左邊開始最長的palindrome string, 就可以得到答案了.
+               但是並沒有一個有效率的方法可以做這件事情. (想到的方法都需要O(n^2))
+            2. 但我們想一下, palindrome string反轉過來也長得一樣, 所以若存在一個從左邊開始的palindrome string, 那麼將整個string反轉過來, 
+               這個palindrome string會變成在尾巴, 且長的一樣.
+            3. 所以回過頭來, 我們要找從左邊開始的最長palindrome string, 那只要把str1 跟其rstr1 串在一起, 透過kmp找failure function的方法,
+               就可以得到與開頭相同的最長字串長度.
+               (但我們要的是reserved string與原本string的最長相同字串, 所以應該在reversed string加上一個character, 讓failure function歸0)
+            4. prob.10
 [GeekForGeeks]
 	
