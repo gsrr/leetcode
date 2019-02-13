@@ -1,4 +1,5 @@
 import sys
+import main
 
 st = []
 
@@ -8,6 +9,9 @@ def push(val):
 
 def pop():
     global st
+    if len(st) == 0:
+        return
+
     st.pop()
 
 def ans(q):
@@ -22,21 +26,5 @@ def ans(q):
     sst = [ str(x) for x in st]
     return ",".join(sst)
 
-def read_file(fname):
-    with open(fname, "r") as fr:
-        lines = fr.readlines()
-        j = 0
-        for i in xrange(0, len(lines), 2):
-            q = lines[i].strip()
-            a = lines[i + 1].strip()
-            ret = ans(eval(q))
-            print "Case %d: %s == %s"%(j + 1, ret, a), ret == a
-            j += 1
-
-def main():
-    name = __file__.strip(".py")
-    cname = name + ".case"
-    read_file(cname)
-
 if __name__ == "__main__":
-    main()
+    main.main(ans)
