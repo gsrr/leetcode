@@ -1,0 +1,10 @@
+[["insert", 8],["insert", 9], ["remove"]]
+9
+[["insert", 1],["insert", 2], ["insert", 5]]
+1,2,5
+[["remove"],["insert", 2], ["insert", 5]]
+2,5
+[["remove"],["remove"], ["insert", 1]]
+1
+[["insert", 9],["insert", 4], ["remove"], ["insert", 10]]
+4,10
