@@ -28,6 +28,16 @@ def binsearch2(arr, val):
         else:
             e = mid - 1
 
+def binsearch_recur(arr, val, s, e):
+    mid = (s + e) // 2
+    if val == arr[mid][0]:
+        return str(arr[mid][1])
+
+    if val > arr[mid][0]:
+        return binsearch_recur(arr, val, mid + 1, e)
+    else:
+        return binsearch_recur(arr, val, s, mid - 1)
+
 def binsearch_left(arr, val):
     s = 0
     e = len(arr) - 1
@@ -57,7 +67,7 @@ def ans(arr, val):
     for i in xrange(len(arr)):
         narr.append([arr[i], i])
     narr.sort()
-    return binsearch_right(narr, val)
+    return binsearch_recur(narr, val, 0, len(narr) - 1)
 
 if __name__ == "__main__":
     main.main(ans)
