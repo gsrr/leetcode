@@ -6,30 +6,19 @@ input: geeksforgeeks
 output: eeeefggkkorss
 '''
 
-def get_max_digits(arr):
-    gmax = 0
-    for i in xrange(len(arr)):
-        gmax = max(gmax, len(str(arr[i])))
-    return gmax
+def counting(arr):
+    carr = [0] * 100
+    for v in arr:
+        carr[v] += 1
 
-def radix(arr):
-    base = 10
-    mdig = get_max_digits(arr)
-    for i in xrange(mdig):
-        bucket = [ [] for _ in xrange(len(arr))]
-        bval = pow(base, i)
-        for j in xrange(len(arr)):
-            bucket[(arr[j] // bval) % 10].append(arr[j])
-        
-        cnt = 0
-        for j in xrange(len(bucket)):
-            for val in bucket[j]:
-                arr[cnt] = val
-                cnt += 1
-    return arr
+    ret = []
+    for i in xrange(len(carr)):
+        for j in xrange(carr[i]):
+            ret.append(i)
+    return ret
 
 def ans(arr):
-    arr = radix(arr)
+    arr = counting(arr)
     return ",".join( [str(x) for x in arr] )
 
 if __name__ == "__main__":
