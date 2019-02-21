@@ -16,8 +16,8 @@ def read_file(fname, ans):
             print "Case %d: %s == %s"%(j + 1, ret, a), ret == a
             j += 1
 
-def main(ans):
-    read_file("cases", ans)
+def main(ans, fname):
+    read_file(fname, ans)
 
 if __name__ == "__main__":
-    main(test)
+    main(test, "cases")

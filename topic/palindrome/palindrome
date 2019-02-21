@@ -162,5 +162,15 @@
             1. 就是prob.6, 使用dp solution, 但一開始有遇到time expired的問題, 
                 把string改成不要每次assign之後就通過了.
             2. prob.11
+	    3. Manacher's Algorithm, time complexity只會有O(n)
+	        3.1 透過計算z function來得到結果 --> what is z-function?
+		3.2 z-funciton就是, 假設一個string是aabac, 那麼其z-function就是[1, 1, 2, 1, 1], 所以可以得到最長palindrome substring長度為2, substring為aba.
+		而z-function怎麼計算, 最簡單的方式就是從每一個index從兩邊延伸來計算得到.但這樣若遇到"aaaaa"的話, time complexity就會退回到O(n^2), 所以Manacher想出了一個方法來針對這種狀況加速處理.
+		以"aabaa"來講, 我們可以得到z[2] = 3, 而當我們要計算z[3](a)時, 因為他被涵蓋在b的z value之下, 所以我們可以從b的palindrome string找到他相對的位置a'(就是index = 1的位置), 接下來會有3種cases:
+		i. a + z(a')的迴文長度小於b + z(b).
+		ii. a + z(a')的迴文長度 == b + z(b).
+		iii. a + z(a')的迴文長度 > b + z(b).
+		若是i, 那麼z(a) == z(a'), 
+
 [GeekForGeeks]
 	
